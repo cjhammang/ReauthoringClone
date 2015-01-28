@@ -1,0 +1,122 @@
+/*
+ * Generic style file for ELEC1601
+ * Copyright (C) 2008 Abelardo Pardo, The University of Sydney
+ * Author: Abelardo Pardo (abelardo.pardo@sydney.edu.au)
+ */
+@import url('css/theme.css');
+@import url('math.css');
+@import url('arduino.css');
+
+/* top banner with my name */
+.wy-side-nav-search
+{ 
+  background-image: url("usyd.jpeg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-color: #12416c;
+  text-align: left;
+  padding-left: 106px;
+ }
+
+div[role = search] 
+{ 
+  text-align: center;
+ }
+
+div#elec1601-computer-systems-weekly-schedule h1 { 
+    background-image: url("chip.png");
+    padding-left: 55px;
+ }
+
+div.rst-content h1,
+div.rst-content h2,
+div.rst-content h3,
+div.rst-content h4,
+div.rst-content h5,
+div.rst-content h6 {
+    background-color: #BED4EB;
+    margin: 10px 0px 10px 0px;
+    text-shadow: 0px 1px 0 white
+}
+
+div.rst-content div#elec1601-computer-systems-weekly-schedule h1,
+div.week > h1,
+div.rst-content div.week div.todo > h2,
+div.rst-content div.week div.toknow > h2,
+div.rst-content div.week div.sessions > h2, 
+div.lecture.inclass > h1,
+div.lecture.previous > h1,
+div.laboratory.previous > h1,
+div.laboratory.inclass > h1 { 
+    background-position: left center;
+    background-repeat: no-repeat;
+ }
+
+div.rst-content div.week > h1 { 
+    background-image: url("calendar.png");
+    padding-left: 45px;
+ }
+
+div.rst-content div.week div.todo > h2 { 
+    background-image: url("todo.png");
+    padding-left: 55px;
+ }
+
+div.rst-content div.week div.toknow > h2 { 
+    background-image: url("toknow.png");
+    padding-left: 40px;
+ }
+
+/* div.rst-content div.week div.lecture > h2 {  */
+/*     background-image: url("clock.png"); */
+/*     padding-left: 40px; */
+/*  } */
+
+/* div.rst-content div.week div.tutorial > h2 {  */
+/*     background-image: url("lightbulb.png"); */
+/*     padding-left: 40px; */
+/*  } */
+
+/* div.rst-content div.week div.laboratory > h2 {  */
+/*     background-image: url("lab.png"); */
+/*     padding-left: 40px; */
+/*  } */
+
+#to-do,
+#to-know,
+div.lecture,
+div.tutorial,
+div.laboratory { 
+  margin-top: 1em;
+  border: 1px solid black;
+}
+
+#to-do > h2,
+#to-know > h2,
+div.lecture > h2,
+div.tutorial > h2,
+div.laboratory > h2 {
+    margin-top: 0px;               
+}
+
+#table-course-assessment td { 
+    text-align: center;
+ }
+
+span.brown {
+    color: brown;
+}
+span.orange {
+    color: orange;
+}
+span.gold {
+    color: gold;
+}
+span.red {
+    color: red;
+}
+
+/* Style for printing */
+@media print {
+}
+
