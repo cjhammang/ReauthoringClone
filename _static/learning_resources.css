@@ -1,11 +1,240 @@
 /*
- * Generic style file for ELEC1601
- * Copyright (C) 2008 Abelardo Pardo, The University of Sydney
+ * Generic style file for Learning Resources
+ * Copyright (C) 2014 Abelardo Pardo, The University of Sydney
  * Author: Abelardo Pardo (abelardo.pardo@sydney.edu.au)
  */
 @import url('css/theme.css');
 @import url('math.css');
-@import url('arduino.css');
+
+.centered
+{
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+ }
+
+/* ------------------------------------------------------------ */
+/*                                                              */
+/* Matrix of topics                                             */
+/*                                                              */
+/* ------------------------------------------------------------ */
+table.topic-matrix
+{
+  border-collapse: collapse;
+  border: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.topic-matrix td,
+table.topic-matrix th
+{
+  padding: 2px;
+}
+
+button.topic-matrix
+{
+  text-align: center;
+  width:100%;
+  height:100%;
+  font-size: 95%;
+  font-weight: bold;
+}
+
+label { color: #222; }
+
+/* Instructor guide and "framed" goes in a frame! */
+div.iguide,
+div.framed {
+    border: 1px solid black;
+    padding: 3px;
+ }
+
+/* Admonition background */
+div.admonition-iguide,
+div.admonition-solution,
+div.admonition-example,
+div.admonition.example,
+div.admonition.important, 
+div.admonition.instruction, 
+div.admonition-important {
+    background-color: #EEEEEE;
+}
+
+.wy-alert-title, .rst-content .admonition-title
+{ 
+  margin: 0px;
+ }
+
+p.admonition-title:after {
+    content: "";
+ }
+
+p.admonition-title {
+    display: block;
+}
+
+/* Images */
+.float-left {
+   float: left;
+ }
+
+.float-right {
+   float: right;
+ }
+
+/* Image captions */
+div.float-right p.caption {
+   text-align: right;
+ }
+
+div.float-left p.caption {
+   text-align: right;
+ }
+
+div.reference p.caption {
+   font-size: 70%;
+}
+
+/* Activity title goes centered */
+div.lecture  h1,
+div.activity  h2,
+div.activity  h3 {
+    color: #12416C;
+ }
+
+div.activity > h2,
+div.activity > h3 {
+    text-align: center;
+ }
+
+/* Activity resources, workplan, objectives, assessment, review */
+div.objectives > h3,
+div.objectives > h2 {
+    background-image: url("target.png");
+}
+
+div.resources > h3,
+div.resources > h2 {
+    background-image: url("computer.png");
+}
+
+div.workplan > h3,
+div.workplan > h2 {
+    background-image: url("desktop.png");
+}
+
+div.assessment > h3,
+div.assessment > h2 {
+    background-image: url("correct.png");
+}
+
+div.review > h3,
+div.review > h2 {
+    background-image: url("magnifying_glass.png");
+}
+
+div.objectives > h3,
+div.objectives > h2,
+div.assessment > h3,
+div.assessment > h2,
+div.workplan > h3,
+div.workplan > h2,
+div.resources > h3,
+div.resources > h2,
+div.review > h3,
+div.review > h2 {
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+}
+
+/*****************************************************
+ * document - toggleable sections
+ *****************************************************/
+
+.html-toggle-button
+{
+    position: relative;
+}
+
+.html-toggle-button:hover
+{
+    /* give a little bit of hint that this is clickable */
+    cursor: pointer;
+    box-shadow: 2px 2px 2px #003469;
+    -moz-box-shadow: 2px 2px 2px #003469;
+    -webkit-box-shadow: 2px 2px 2px #003469;
+}
+
+div.body div.section:not(.emphasize-children) > div.section:not(.emphasized) > h3.html-toggle-button:hover,
+div.body h2.html-toggle-button:hover,
+div.body h4.html-toggle-button:hover
+{
+    background: #92BCDE;
+    box-shadow: 0 0  2px #003469;
+    -moz-box-shadow: 0 0 2px #003469;
+    -webkit-box-shadow: 0 0 2px #003469;
+}
+
+.activity.collapsed > .html-toggle-button
+{
+    margin-bottom: 1em;
+}
+
+/* .activity.collapsed > .html-toggle-button:before */
+.activity.collapsed > .html-toggle-button,
+.section.collapsed > .html-toggle-button
+{
+    background-image: url("jean_victor_balin_add_blue.png");
+    padding-left: 34px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+/* .activity.expanded > .html-toggle-button:before */
+.activity.expanded > .html-toggle-button,
+.section.expanded > .html-toggle-button
+{
+    background-image: url("jean_victor_balin_remove_blue.png");
+    padding-left: 34px;
+    background-position: left center;
+    background-repeat: no-repeat;
+}
+
+.html-toggle-button:hover a.headerlink:not(:hover) { opacity: 0; }
+
+/*****************************************************
+  DURATION 
+*****************************************************/
+div.adagio_duration_select {
+   text-align: right;
+ }
+
+/*****************************************************
+EMBEDED QUIZ
+*****************************************************/
+div.adagio_embedded_quiz {
+    border: 1px solid black;
+    margin-top: 0.5em;
+    padding: 0.5em;
+ }
+
+ol.eqt-answer-list 
+{
+    padding: 10px;
+}
+
+/*****************************************************
+contents:: directive
+*****************************************************/
+div.contents
+{ 
+  border: solid 1px black;
+  padding-left: 0.5em;
+  padding-bottom: 0.5em;
+  margin-bottom: 0.5em;
+}  
 
 /* top banner with my name */
 .wy-side-nav-search
@@ -23,11 +252,6 @@ div[role = search]
   text-align: center;
  }
 
-div#elec1601-computer-systems-weekly-schedule h1 { 
-    background-image: url("chip.png");
-    padding-left: 55px;
- }
-
 div.rst-content h1,
 div.rst-content h2,
 div.rst-content h3,
@@ -39,7 +263,6 @@ div.rst-content h6 {
     text-shadow: 0px 1px 0 white
 }
 
-div.rst-content div#elec1601-computer-systems-weekly-schedule h1,
 div.week > h1,
 div.rst-content div.week div.todo > h2,
 div.rst-content div.week div.toknow > h2,
@@ -66,21 +289,6 @@ div.rst-content div.week div.toknow > h2 {
     background-image: url("toknow.png");
     padding-left: 40px;
  }
-
-/* div.rst-content div.week div.lecture > h2 {  */
-/*     background-image: url("clock.png"); */
-/*     padding-left: 40px; */
-/*  } */
-
-/* div.rst-content div.week div.tutorial > h2 {  */
-/*     background-image: url("lightbulb.png"); */
-/*     padding-left: 40px; */
-/*  } */
-
-/* div.rst-content div.week div.laboratory > h2 {  */
-/*     background-image: url("lab.png"); */
-/*     padding-left: 40px; */
-/*  } */
 
 #to-do,
 #to-know,
