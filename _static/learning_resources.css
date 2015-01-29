@@ -96,6 +96,14 @@ div.reference p.caption {
    font-size: 70%;
 }
 
+p.caption { 
+   margin-bottom: 0px;
+ }
+
+.rst-content div.figure {
+  margin-bottom: 10px;
+}
+
 /* Activity title goes centered */
 div.lecture  h1,
 div.activity  h2,
@@ -237,9 +245,9 @@ div.contents
 }  
 
 /* top banner with my name */
-.wy-side-nav-search
+.logobgn
 { 
-  background-image: url("usyd.jpeg");
+  background-image: url("logo.png");
   background-position: left center;
   background-repeat: no-repeat;
   background-color: #12416c;
