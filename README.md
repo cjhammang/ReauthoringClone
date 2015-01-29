@@ -1,13 +1,13 @@
 Steps to install the Authoring Toolkit
 ======================================
 
-1. Install Python (2.7.9) and Sphinx (latest version)
+## Install Python (2.7.9) and Sphinx (latest version)
 
   [Install Python and Sphinx](http://sphinx-doc.org/latest/install.html)
 
 ---
  
-2. Install sphinx_rtd_theme
+## Install sphinx_rtd_theme
 
   Open a command window and type:
 
@@ -17,7 +17,7 @@ Steps to install the Authoring Toolkit
 
 ---
 
-3. Create a sample site
+## Create a sample site
 
   The sample site is available through the [bitbucket reauthoring repository](https://bitbucket.org/abelardopardo/reauthoring)
 
