@@ -23,10 +23,11 @@ Steps to install the Authoring Toolkit
 
   1. Go to https://bitbucket.org/abelardopardo/reauthoring/downloads
   
-  2. Download the repository.
+  2. Download the repository. 
   
   3. Unpack the ZIP in a folder in your own computer (in which you have
-    installed Sphinx)
+    installed Sphinx). Alternatively to these steps you could have simply
+    cloned the repository with `git`.
     
   4. Open a command window in windows
   
