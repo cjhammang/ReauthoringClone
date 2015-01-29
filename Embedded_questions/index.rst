@@ -1,3 +1,5 @@
+.. _Embedded-MCQ:
+
 =============================================
  Multiple Choice Questions Embedded in Notes
 =============================================
