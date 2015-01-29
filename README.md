@@ -32,9 +32,9 @@ Steps to install the Authoring Toolkit
   4. Open a command window in windows
   
   5. Go to the folder where you downloaded the repository. There should be a
-    file called conf.py in that folder.
+    file called `conf.py` in that folder.
     
-  6. Type the command "make html" in the command window
+  6. Type the command `make html` in the command window
   
   7. Open the browser and look at the file _build/html/index.html that was
     created in that same folder. You should be looking at a sample of a set of
