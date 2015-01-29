@@ -1,5 +1,6 @@
+*.pyc
+*~
+.~lock*#
 /Sandbox
 /_build
-*~
-*.pyc
-.~lock*#
+/wiki
