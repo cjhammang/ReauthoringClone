@@ -44,6 +44,7 @@ notes.
    /Videos/index
    /Sequences/index
    /Activity/index
+   /Accordion_docs/index
    /Customize/index
 
 We would like to hear about your experience using this authoring toolkit. Drop
