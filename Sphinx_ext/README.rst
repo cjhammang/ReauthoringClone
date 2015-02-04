@@ -1,3 +1,5 @@
+:orphan:
+
 You may want to us this folder as a stand alone place holder for Sphinx macros. If that is
 so, you need to perform a **sparse checkout** with git.
 `The steps to do a sparse clone are as follows <http://stackoverflow.com/a/13738951>`_::
