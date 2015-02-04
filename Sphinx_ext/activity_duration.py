@@ -41,7 +41,7 @@ def visit_activity_duration_node(self, node):
     phrase = node["phrase"]
     p_to_static = node["p_to_static"]
 
-    self.body.append('<div class="adagio_duration_select">')
+    self.body.append('<div class="reauthoring_duration_select">')
     self.body.append('<form>')
 
     self.body.append(phrase)
@@ -78,7 +78,7 @@ def visit_activity_duration_node(self, node):
     self.body.append('<select> mins.')
 
     # Submit button
-    self.body.append('<button class="adagio_duration_submit">Ok</button>')
+    self.body.append('<button class="reauthoring_duration_submit">Ok</button>')
     self.body.append("</form>")
     self.body.append('<img class="duration_ok_icon" style="display: none;" src="%s"></img>' \
                          % os.path.join(node["p_to_static"], 

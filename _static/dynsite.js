@@ -41,7 +41,7 @@ $(document).ready(function() {
 	    return false;  //stop the actual form post !important!
 	});
     }
-    $(".adagio_duration_submit").each(init)
+    $(".reauthoring_duration_submit").each(init)
 });
 /*****  Generic form submission **** */
 $(document).ready(function() {
@@ -77,7 +77,7 @@ $(document).ready(function() {
 	    return false;  //stop the actual form post !important!
 	});
     }
-    $(".adagio_submit").each(init)
+    $(".reauthoring_submit").each(init)
 });
 /***** Expand collapse of sections *****/
 $(document).ready(function (){
@@ -260,14 +260,14 @@ function solutions() {
 
 $(document).ready(function () {
     /* Get the buttons to execute the correct functions when clicked */
-    var hc = $('.adagio_embedded_quiz_buttons');
+    var hc = $('.reauthoring_embedded_quiz_buttons');
     hc.find('input:nth-child(1)').click(grade);
     hc.find('input:nth-child(1)').css('display', 'inline');
     hc.find('input:nth-child(2)').click(again);
     hc.find('input:nth-child(3)').click(solutions);
 
     /* Background of the list and the correct/incorrect icons */
-    hc = $('.adagio_embedded_quiz_questions');
+    hc = $('.reauthoring_embedded_quiz_questions');
     hc.find('li').css('background',
 		      'none no-repeat 0 0').css('marginLeft', '2em');
     hc.find('ol').css('listStyleType', 'upper-alpha');

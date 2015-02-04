@@ -215,14 +215,14 @@ div.body h4.html-toggle-button:hover
 /*****************************************************
   DURATION 
 *****************************************************/
-div.adagio_duration_select {
+div.reauthoring_duration_select {
    text-align: right;
  }
 
 /*****************************************************
 EMBEDED QUIZ
 *****************************************************/
-div.adagio_embedded_quiz {
+div.reauthoring_embedded_quiz {
     border: 1px solid black;
     margin-top: 0.5em;
     padding: 0.5em;
@@ -254,6 +254,10 @@ div.contents
   text-align: left;
   padding-left: 106px;
  }
+
+.wy-side-nav-search {
+  background-color: #12416c;
+}
 
 div[role = search] 
 { 

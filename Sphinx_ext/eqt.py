@@ -42,13 +42,13 @@ def visit_eqt_node(self, node):
     method = node["method"]
     action = node["action"]
 
-    self.body.append('<div class="adagio_embedded_quiz" id="%s">' % node["args"][0])
+    self.body.append('<div class="reauthoring_embedded_quiz" id="%s">' % node["args"][0])
     self.body.append('<form method="%s" action="%s" target="%s">' % \
                          (method, action, form_target))
     self.body.append('<input type="hidden" name="%s"/>' % node["id_field_name"])
     self.body.append('<input type="hidden" name="%s"/>' % node["data_field_name"])
     self.body.append('</form>')
-    self.body.append('<form class="adagio_embedded_quiz_questions">')
+    self.body.append('<form class="reauthoring_embedded_quiz_questions">')
 
 def depart_eqt_node(self, node):
     ### Need to check for the MODE!
@@ -56,12 +56,12 @@ def depart_eqt_node(self, node):
     form_target = node["args"][0] + '_response'
 
     self.body.append('</form>')
-    self.body.append('<div class="adagio_embedded_quiz_buttons">')
-    self.body.append('<input class="adagio_quiz_button" style="display:none;" ')
+    self.body.append('<div class="reauthoring_embedded_quiz_buttons">')
+    self.body.append('<input class="reauthoring_quiz_button" style="display:none;" ')
     self.body.append('type="button" value="Grade" />')
-    self.body.append('<input class="adagio_quiz_button" style="display:none;" ')
+    self.body.append('<input class="reauthoring_quiz_button" style="display:none;" ')
     self.body.append('type="button" value="Again" />')
-    self.body.append('<input class="adagio_quiz_button" style="display:none;" ')
+    self.body.append('<input class="reauthoring_quiz_button" style="display:none;" ')
     self.body.append('type="button" value="Solutions" />')
     self.body.append('</div>')
     self.body.append('</div>')

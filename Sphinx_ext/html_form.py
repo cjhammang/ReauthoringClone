@@ -21,7 +21,7 @@ def visit_html_form_node(self, node):
     # Get the arguments
     form_id = node["args"][0]
     
-    self.body.append('<div class="adagio_form">')
+    self.body.append('<div class="reauthoring_form">')
     self.body.append('<form>')
 
 def depart_html_form_node(self, node):
@@ -35,7 +35,7 @@ def depart_html_form_node(self, node):
                      form_id)
 
     # Submit button
-    self.body.append('<div><button class="adagio_submit">' + 
+    self.body.append('<div><button class="reauthoring_submit">' + 
                      node["button_name"] + '</button></div>')
     self.body.append("</form>")
     self.body.append('<img class="submit_ok_icon" style="display: none;" src="%s"></img>' \
