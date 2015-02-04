@@ -336,6 +336,11 @@ span.red {
     color: red;
 }
 
+button[disabled] label {
+    color: #999999;
+    cursor: default;
+}
+
 /* Style for printing */
 @media print {
 }
