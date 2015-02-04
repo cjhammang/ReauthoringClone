@@ -1,21 +1,18 @@
-:orphan:
+You may want to use this folder as a clone of the repository and update with
+new versions of the macros, you need to perform a **sparse checkout** with git.
+`The steps to do a sparse clone are as follows::
 
-You may want to us this folder as a stand alone place holder for Sphinx macros. If that is
-so, you need to perform a **sparse checkout** with git.
-`The steps to do a sparse clone are as follows <http://stackoverflow.com/a/13738951>`_::
+   git clone <reauthoring repo URL> Reauthoring
+   cd Reauthoring
 
-   git clone <repo>
-   cd <repo>
-
-This creates a repository with your remote. Then do::
+This creates the repository with a clone of the remote files. Then do::
 
    git config core.sparsecheckout true
 
 Now define which files/folders you want to check out by listing them in 
- ``.git/info/sparse-checkout``::
+``.git/info/sparse-checkout``::
 
-   echo "/some/dir" >> .git/info/sparse-checkout
-   echo "/another/sub/tree" >> .git/info/sparse-checkout
+   echo "/Sphinx_ext" >> .git/info/sparse-checkout
 
 Update the repository with the directories just selected:: 
 
