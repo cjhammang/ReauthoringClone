@@ -1,4 +1,4 @@
-# Reauthoring: A Toolkit to create Liquid HTML Learning Resources
+# Reauthoring: A Toolkit to create Liquid HTML Active Learning Resources
 
 Welcome to Reauthoring, a toolkit to create learning resources in Liquid HTML
 (automatically adapts to the size and type of device) with active components
