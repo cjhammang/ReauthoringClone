@@ -12,7 +12,7 @@ linking. You may generate a similar file for a new project using the
 `sphinx-quickstart <http://sphinx-doc.org/man/sphinx-quickstart.html>`_
 command.
 
-There are four other source of customization that you can explore:
+There are four other sources of customization that you can explore:
 
 1. CSS styles: The folder ``_static`` contains CSS files defining the style for
    the created HTML. For example, the logo that appears in the left corner of
