@@ -38,10 +38,16 @@ def do(config):
         '--exclude', 
         '*~']
  
+    # Get the value stored in  extra args and check it is a list
     extra_args = config.get('publish_extra_args')
-    if extra_args != None and extra_args != '':
+    if extra_args != None:
+        if not isinstance(extra_args, list):
+            print 'ERROR: Variable publish_extra_args must have a list'
+            sys.exit(1)
+        # Append to end of command
         command.extend(extra_args)
         
+    # Append the rest of options.
     command.extend([
         config['publish_src_folder'],
         config['publish_dst_folder']
