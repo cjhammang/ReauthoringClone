@@ -39,25 +39,26 @@ You may check the
 
 ### Create a sample site
 
-The sample site is available through the [bitbucket reauthoring repository](https://bitbucket.org/abelardopardo/reauthoring)
+The sample site is available through [this bitbucket reauthoring repository](https://bitbucket.org/abelardopardo/reauthoring)
 
 1. Go to https://bitbucket.org/abelardopardo/reauthoring/downloads
   
 2. Download the repository. 
   
 3. Unpack the ZIP in a folder in your own computer (in which you have installed
-   Sphinx). Alternatively to these steps you could have simply cloned the
-   repository with `git`.
+   Sphinx). Alternatively to these steps you can clone the repository with
+   `git` (if you don't know what this means, doesn't matter).
     
-4. Open a command window in windows
+4. Open a command window in your computer.
   
-5. Go to the folder where you downloaded the repository. There should be a file
-   called `conf.py` in that folder.
+5. Go to the folder where you downloaded and expanded the repository. There
+   should be a file called `conf.py` in that folder.
        
 6. Type the command `make html` in the command window
 	   
 7. Open the browser and look at the file _build/html/index.html that was
-   created in that same folder. You should be looking at a sample of a set of
-   pages created using the authoring toolkit.
+   created in that same folder. You should be looking at a sample of pages
+   created using the authoring toolkit. Go ahead, modify them, type again the
+   `make html` command and a new version is ready.
 
 Happy designing!
