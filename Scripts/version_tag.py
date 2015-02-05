@@ -31,6 +31,11 @@ def do(config):
     # Check that all required variables are defined.
     common.var_check(config, ['version_file', 'version_re', 'version_tag'])
 
+    if not os.path.exists(config['version_file']) or \
+       not os.path.isfile(config['version_file']):
+        print 'ERROR:', config['version_file'], 'is not a correct file'
+        sys.exit(1)
+
     new_content = '' # New file content
     matched = False  # To detect if a match occurs
     with open(config['version_file']) as f:

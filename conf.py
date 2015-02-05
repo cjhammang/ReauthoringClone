@@ -6,8 +6,7 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys
-import os
+import sys, os, datetime
 
 import sphinx_rtd_theme
 
@@ -308,3 +307,50 @@ texinfo_documents = [
 
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #texinfo_no_detailmenu = False
+
+################################################################################
+#
+# Sanity check: search for incorrect patterns in RST files
+#
+################################################################################
+sanity_src_folder = ''
+sanity_files = ''
+sanity_detect = None # List of strings to match as incorrect
+
+################################################################################
+#
+# Version tagging
+#
+################################################################################
+rst_prolog = """
+.. meta::
+   :version-id: Version_150205123725
+"""
+version_file = 'conf.py'
+version_re = '   :version-id: (?P<tag>.+)'
+version_tag = 'Version_' + datetime.datetime.now().strftime('%y%m%d%H%M%S')
+
+################################################################################
+#
+# Linkchecker
+#
+################################################################################
+linkchecker_src_folder = '_build/html'
+linkchecker_ignore_urls = [
+    'about:blank',
+    '^http://',
+    '^https://',
+    '^mailto:',
+    '//cdn.mathjax.org/mathjax/latest/MathJax.js',
+    'data:image/png;base64*'
+]
+
+
+################################################################################
+#
+# Publish
+#
+################################################################################
+publish_src_folder = '_build/html'
+publish_dst_folder = ''
+

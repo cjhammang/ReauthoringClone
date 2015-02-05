@@ -22,12 +22,38 @@
 import os, sys, getopt
 from sphinx.util.tags import Tags
 
+def find_conf_dir(start_dir, conf_file = 'conf.py'):
+    """
+    Traverse directories upward to find the configuration file.
+    
+    return the directory where the file is found or None
+    """
+    current_dir = os.path.abspath(start_dir)
+
+    while (os.path.splitdrive(current_dir)[1] != os.sep) and \
+            (not os.path.exists(os.path.join(current_dir, conf_file))):
+        current_dir = os.path.abspath(os.path.join(current_dir, ".."))
+
+    # If nothing found, return the given None
+    if not os.path.exists(os.path.join(current_dir, conf_file)):
+        return None
+
+    return current_dir
+
+
 def load_config_file(dirname = '..', filename = 'conf.py', cmd_args = ''):
     """
     Function that loads the values defined in the configuration file parses the
     options given, and returns
     a dictionary with the appropriate variables.
     """
+
+    # Search for conf.py in the ancestors of the current directory
+    dirname = find_conf_dir(dirname)
+    if conf_dir == None:
+        print 'ERROR: Configuration file', filename, 'could not be found.',
+        print 'Check the location of this script.'
+        sys.exit(1)
 
     tags = []
     eval_strs = []
