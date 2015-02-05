@@ -345,7 +345,7 @@ sanity_detect = None # List of strings to match as incorrect
 ################################################################################
 rst_prolog = """
 .. meta::
-   :version-id: Version_150205155648
+   :version-id: Version_150206074233
 """
 version_file = 'conf.py'
 version_re = '   :version-id: (?P<tag>.+)'
@@ -374,4 +374,4 @@ linkchecker_ignore_urls = [
 ################################################################################
 publish_src_folder = '_build/html/'
 publish_dst_folder = ''
-
+publish_extra_args = []

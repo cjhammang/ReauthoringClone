@@ -36,13 +36,19 @@ def do(config):
         'rsync', 
         '-avz', 
         '--exclude', 
-        '*~', 
-        '--delete',
+        '*~']
+ 
+    extra_args = config.get('publish_extra_args')
+    if extra_args != None and extra_args != '':
+        command.extend(extra_args)
+        
+    command.extend([
         config['publish_src_folder'],
         config['publish_dst_folder']
-    ]
-
-    print 'Executing command', ' '.join(command)
+    ])
+                   
+    if config['debug']:
+        print 'Executing command', ' '.join(command)
     subprocess.check_call(command)
 
 sub_commands = {
