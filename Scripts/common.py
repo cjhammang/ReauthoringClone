@@ -50,7 +50,7 @@ def load_config_file(dirname = '..', filename = 'conf.py', cmd_args = ''):
 
     # Search for conf.py in the ancestors of the current directory
     dirname = find_conf_dir(dirname)
-    if conf_dir == None:
+    if dirname == None:
         print 'ERROR: Configuration file', filename, 'could not be found.',
         print 'Check the location of this script.'
         sys.exit(1)
