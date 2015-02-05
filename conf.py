@@ -335,7 +335,7 @@ version_tag = 'Version_' + datetime.datetime.now().strftime('%y%m%d%H%M%S')
 # Linkchecker
 #
 ################################################################################
-linkchecker_src_folder = '_build/html'
+linkchecker_src_folder = '_build/html/'
 linkchecker_ignore_urls = [
     'about:blank',
     '^http://',
@@ -351,6 +351,6 @@ linkchecker_ignore_urls = [
 # Publish
 #
 ################################################################################
-publish_src_folder = '_build/html'
+publish_src_folder = '_build/html/'
 publish_dst_folder = ''
 
