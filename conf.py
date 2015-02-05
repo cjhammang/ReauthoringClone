@@ -27,7 +27,7 @@
 # All configuration values have a default; values that are commented out
 # serve to show the default.
 
-import sys, os, datetime
+import sys, os, datetime, pytz
 
 import sphinx_rtd_theme
 
@@ -349,7 +349,8 @@ rst_prolog = """
 """
 version_file = 'conf.py'
 version_re = '   :version-id: (?P<tag>.+)'
-version_tag = 'Version_' + datetime.datetime.now().strftime('%y%m%d%H%M%S')
+version_tag = 'Version_' + \
+              datetime.datetime.now(pytz.utc).strftime('%y%m%d%H%M%S')
 
 ################################################################################
 #
