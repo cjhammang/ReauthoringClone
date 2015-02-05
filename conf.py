@@ -345,7 +345,7 @@ sanity_detect = None # List of strings to match as incorrect
 ################################################################################
 rst_prolog = """
 .. meta::
-   :version-id: Version_150206075808
+   :version-id: Version_150205210322
 """
 version_file = 'conf.py'
 version_re = '   :version-id: (?P<tag>.+)'
