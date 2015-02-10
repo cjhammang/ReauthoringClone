@@ -240,7 +240,9 @@ div.reauthoring_duration_select {
 /*****************************************************
 EMBEDED QUIZ
 *****************************************************/
-div.reauthoring_embedded_quiz {
+div.reauthoring_embedded_quiz,
+div.reauthoring_embedded_quiz-fib
+{
     border: 1px solid black;
     margin-top: 0.5em;
     padding: 0.5em;
@@ -251,6 +253,10 @@ ol.eqt-answer-list
     padding: 10px;
 }
 
+div.reauthoring_embedded_quiz-fib .reauthoring_embedded_quiz-fib-answer
+{ 
+  margin: 0.5em 0 0.5em 0;
+ }
 /*****************************************************
 contents:: directive
 *****************************************************/
