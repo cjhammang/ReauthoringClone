@@ -64,11 +64,11 @@ def visit_eqt_node(self, node):
     action = node["action"]
 
     self.body.append('<div class="reauthoring_embedded_quiz" id="%s">' % node["args"][0])
-    self.body.append('<form method="%s" action="%s" target="%s">' % \
-                         (method, action, form_target))
-    self.body.append('<input type="hidden" name="%s"/>' % node["id_field_name"])
-    self.body.append('<input type="hidden" name="%s"/>' % node["data_field_name"])
-    self.body.append('</form>')
+    # self.body.append('<form method="%s" action="%s" target="%s">' % \
+    #                      (method, action, form_target))
+    # self.body.append('<input type="hidden" name="%s"/>' % node["id_field_name"])
+    # self.body.append('<input type="hidden" name="%s"/>' % node["data_field_name"])
+    # self.body.append('</form>')
     self.body.append('<form class="reauthoring_embedded_quiz_questions">')
 
 def depart_eqt_node(self, node):
@@ -83,7 +83,7 @@ def depart_eqt_node(self, node):
     self.body.append('<input class="reauthoring_quiz_button" style="display:none;" ')
     self.body.append('type="button" value="Again" />')
     self.body.append('<input class="reauthoring_quiz_button" style="display:none;" ')
-    self.body.append('type="button" value="Solutions" />')
+    self.body.append('type="button" value="Solution" />')
     self.body.append('</div>')
     self.body.append('</div>')
 
