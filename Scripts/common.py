@@ -41,7 +41,7 @@ def find_conf_dir(start_dir, conf_file = 'conf.py'):
     return current_dir
 
 
-def load_config_file(dirname = '..', filename = 'conf.py', cmd_args = ''):
+def load_config_file(dirname = '.', filename = 'conf.py', cmd_args = ''):
     """
     Function that loads the values defined in the configuration file parses the
     options given, and returns
