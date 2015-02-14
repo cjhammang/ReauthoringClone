@@ -140,10 +140,7 @@ $(document).ready(function (){
     $("div.chapter-with-expand > div.section > h1, div.chapter-with-expand > div.section > h2, div.chapter-with-expand > div.section > h3, div.chapter-with-expand > div.section > h4, div.chapter-with-expand > div.section > h5, div.chapter-with-expand > div.section > h6").each(init);
 });
 /***** Embedded MCQ *****/
-function grade() {
-    /* Get the div element to process from above */
-    var div_el = $(this).parent().parent();
-
+function grade_mcq(div_el) {
     /* Ordered list element with the answer */
     var answer_list = div_el.find("form > ol.eqt-answer-list");
 
@@ -179,6 +176,45 @@ function grade() {
 	break;
     }
 
+    return answer;
+}
+
+function grade_fib(div_el) {
+    var inside_div = div_el.find("form > div.reauthoring_embedded_quiz-fib-answer");
+
+    /* Find input element */ 
+    var qval = inside_div.find("input[name = 'question']")[0].value;
+    var aval = inside_div.find("input[name = 'solution']")[0].getAttribute("value");
+    
+    /* Empty answer prompts no action */
+    if (qval == "") {
+	return -1;
+    }
+
+    if (qval == aval) {
+	tochange = inside_div[0].getElementsByClassName('correct_icon');
+	answer = 1;
+    } else {
+	tochange = inside_div[0].getElementsByClassName('incorrect_icon');
+	answer = 0;
+    }
+
+    /* Show the icon */
+    tochange[0].style.opacity = "1";
+    return answer;
+}
+
+function grade() {
+    /* Get the div element to process from above */
+    var div_el = $(this).parent().parent();
+    
+    div_id = div_el[0].getAttribute('class');
+    if (div_id.substring(div_id.length - 4, div_id.length) == "-fib") {
+	answer = grade_fib(div_el);
+    } else {
+	answer = grade_mcq(div_el);
+    }
+
     /* Grade button pushed with no answer given. Finish */
     if (answer == -1) {
 	return;
@@ -196,10 +232,7 @@ function grade() {
     bts[2].style.display="inline";
 };
 
-function again() {
-    /* Get the form element to process from above */
-    var div_el = $(this).parent().parent();
-
+function again_mcq(div_el) {
     /* Ordered list element with the answer */
     var answer_list = div_el.find("form > ol.eqt-answer-list");
 
@@ -220,6 +253,27 @@ function again() {
 	radios[i].checked = false;
     }
 
+}
+
+function again_fib(div_el) {
+    var inside_div = div_el.find("form > div.reauthoring_embedded_quiz-fib-answer");
+
+    /* Find input element */ 
+    inside_div.find("input[name = 'question']")[0].value = "";
+    inside_div.find("img").css('opacity', '0');
+}
+
+function again() {
+    /* Get the form element to process from above */
+    var div_el = $(this).parent().parent();
+
+    div_id = div_el[0].getAttribute('class');
+    if (div_id.substring(div_id.length - 4, div_id.length) == "-fib") {
+	again_fib(div_el);
+    } else {
+	again_mcq(div_el);
+    }
+    
     /* And restore the view in which only the grade button is visible */
     var bts = this.parentNode.getElementsByTagName('input');
     bts[0].style.display="inline";
@@ -227,10 +281,7 @@ function again() {
     bts[2].style.display="none";
 }
 
-function solutions() {
-    /* Get the div element to process from above */
-    var div_el = $(this).parent().parent();
-
+function solutions_mcq(div_el) {
     /* Ordered list element with the answer */
     var answer_list = div_el.find("form > ol.eqt-answer-list");
 
@@ -251,7 +302,27 @@ function solutions() {
 	/* Show the icon */
 	tochange[0].style.opacity = "1";
     }
+}
 
+function solutions_fib(div_el) {
+    /* Find answer value and set it to the value of the question field */
+    var inside_div = div_el.find("form > div.reauthoring_embedded_quiz-fib-answer");
+    var aval = inside_div.find("input[name = 'solution']")[0].getAttribute("value");
+    inside_div.find("input[name = 'question']")[0].value = aval;
+    inside_div.find("img").css('opacity', '0');
+}
+
+function solutions() {
+    /* Get the div element to process from above */
+    var div_el = $(this).parent().parent();
+
+    div_id = div_el[0].getAttribute('class');
+    if (div_id.substring(div_id.length - 4, div_id.length) == "-fib") {
+	solutions_fib(div_el);
+    } else {
+	solutions_mcq(div_el);
+    }
+    
     // Send the "embedded-question-again" event
     data = {};
     data[div_el.attr('id')] = "-1";
@@ -273,10 +344,14 @@ $(document).ready(function () {
     hc.find('ol').css('listStyleType', 'upper-alpha');
     hc.find('ul').css('listStyleType', 'upper-alpha');
 
-    $('.correct_icon').css('marginLeft',
+    /* MCQ */
+    $('.reauthoring_embedded_quiz .correct_icon').css('marginLeft',
     			'-43px').css('marginRight', '43px');
-    $('.incorrect_icon').css('marginLeft',
-				  '-66px').css('marginRight', '23px');
+    $('.reauthoring_embedded_quiz .incorrect_icon').css('marginLeft',
+    				  '-66px').css('marginRight', '23px');
+    /* FIB */
+    $('.reauthoring_embedded_quiz-fib .incorrect_icon').css('marginLeft',
+    				  '-23px');
 });
 /* Page now records an event upon loading */
 $(document).ready(function() {

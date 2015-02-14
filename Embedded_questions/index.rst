@@ -1,13 +1,21 @@
 .. _Embedded-MCQ:
 
-=============================================
- Multiple Choice Questions Embedded in Notes
-=============================================
+=============================
+ Questions Embedded in Notes
+=============================
 
-This extension is one of the classics: multiple choice questions. It allows to
-include the questions in the middle of the notes for formative assessment
-purposes. Students can then answer these questions at any point in time, and
-check immediately their answers. This is how you write on of these questions::
+These extensions insert several question types in the middle of the text with
+their automatic assessment. Students can check the answer immediately. The kit
+supports the following type of questions:
+
+- Multiple choice with one correct answer.
+- Fill in the blank (fixed answer)
+
+Multiple Choice with One Correct Answer
+---------------------------------------
+
+The directive to insert a multiple choice question with a single correct answer
+is::
 
   .. eqt:: COD-integerencoding-videoeqt-eqt_11
 
@@ -49,3 +57,30 @@ questions of this type.
 .. toctree::
    
    sample_eqt
+
+Fill in the Blank
+-----------------
+
+The directive to insert these questions is almost identical to the previous one
+with a slight difference in the first line and the way you specify the answer:: 
+
+  .. eqt-fib:: COD-integerencoding-sequence-11
+
+     **Question 1** What is the representation of the number -127 in 2s
+     complement with 8 bits? 
+
+     :eqt:`10000001`
+
+The rendering of the directive is:
+
+.. eqt-fib:: COD-integerencoding-sequence-11
+
+   **Question 1** What is the representation of the number -127 in 2s
+   complement with 8 bits? 
+
+   :eqt:`10000001`
+
+The answer is case sensitive. Thus, if you use it for a string, make sure the
+answer is the obvious one with respect to case.
+
+
