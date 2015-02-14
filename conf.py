@@ -121,7 +121,8 @@ release = '1.0'
 exclude_patterns = [
     '_build',
     '**/.#*.rst',
-    'Sequences/Sample'
+    'Sequences',
+    'Samples'
 ]
 
 # The reST default role (used for this markup: `text`) to use for all
