@@ -76,6 +76,30 @@ if "%1" == "version_tag" (
 	goto end
 )
 
+if "%1" == "rsync" (
+	python %REA_SCRIPTS/rsync.py 
+	if errorlevel 1 exit /b 1
+	echo.
+	echo.Files sychronized with remote repository.
+	goto end
+)
+
+if "%1" == "sanity_check" (
+	python %REA_SCRIPTS/sanity_check.py 
+	if errorlevel 1 exit /b 1
+	echo.
+	echo.Files sychronized with remote repository.
+	goto end
+)
+
+if "%1" == "link_checker" (
+	python %REA_SCRIPTS/link_checker.py 
+	if errorlevel 1 exit /b 1
+	echo.
+	echo.Files sychronized with remote repository.
+	goto end
+)
+
 if "%1" == "dirhtml" (
 	%SPHINXBUILD% -b dirhtml %ALLSPHINXOPTS% %BUILDDIR%/dirhtml
 	if errorlevel 1 exit /b 1
