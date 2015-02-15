@@ -58,6 +58,40 @@ questions of this type.
    
    sample_eqt
 
+Multiple Choice with Multiple Answers Correct
+---------------------------------------------
+
+The directive to insert a multiple choice question with multiple correct
+answers is::
+
+  .. eqt-mc:: COD-hexanane-11
+
+     **Question 1** How is the base with 16 symbols called? 
+
+     A) :eqt:`I` Strange
+
+     #) :eqt:`C` Hexadecimal
+
+     #) :eqt:`I` Hexagonal 
+
+     #) :eqt:`C` Base 16
+
+Remember that the string that follows the `.. eqt-mc::` directive must be
+unique throughout your documents. The correct choices are marked as in the
+previous case. The result is:
+
+.. eqt-mc:: COD-hexanane-11
+
+   **Question 1** How is the base with 16 symbols called? 
+
+   A) :eqt:`I` Strange
+
+   #) :eqt:`C` Hexadecimal
+
+   #) :eqt:`I` Hexagonal 
+
+   #) :eqt:`C` Base 16
+
 Fill in the Blank
 -----------------
 
@@ -82,5 +116,4 @@ The rendering of the directive is:
 
 The answer is case sensitive. Thus, if you use it for a string, make sure the
 answer is the obvious one with respect to case.
-
 
