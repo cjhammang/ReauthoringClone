@@ -68,6 +68,14 @@ if "%1" == "html" (
 	goto end
 )
 
+if "%1" == "version_tag" (
+	python %REA_SCRIPTS/version_tag.py 
+	if errorlevel 1 exit /b 1
+	echo.
+	echo.A new version tag has been created.
+	goto end
+)
+
 if "%1" == "dirhtml" (
 	%SPHINXBUILD% -b dirhtml %ALLSPHINXOPTS% %BUILDDIR%/dirhtml
 	if errorlevel 1 exit /b 1
