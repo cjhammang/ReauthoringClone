@@ -241,6 +241,7 @@ div.reauthoring_duration_select {
 EMBEDED QUIZ
 *****************************************************/
 div.reauthoring_embedded_quiz,
+div.reauthoring_embedded_quiz-mc,
 div.reauthoring_embedded_quiz-fib
 {
     border: 1px solid black;

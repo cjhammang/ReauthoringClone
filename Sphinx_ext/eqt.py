@@ -36,9 +36,17 @@ from Sphinx_ext import html_form, common
 class eqt_answer_type(nodes.General, nodes.Element): pass
 
 def visit_eqt_answer_type_node(self, node):
+    """
+    Function executed when the node representing the :eqt:`XXX` is visited
+    """
     ### Need to check for the MODE!
 
-    if node["type"] == 'eqt':
+    if node["type"] == 'eqt' or node["type"] == 'eqt-mc':
+        if node["type"] == 'eqt':
+            input_type = "radio"
+        else:
+            input_type = "checkbox"
+
         self.body.append('<img class="correct_icon"')
         self.body.append(' style="opacity: 0; margin-left: -23px;"')
         self.body.append(' src="%s"></img>' % os.path.join(node["p_to_static"],
@@ -48,8 +56,8 @@ def visit_eqt_answer_type_node(self, node):
         self.body.append(' src="%s"></img>' 
                          % os.path.join(node["p_to_static"],
                                         'Incorrect_20x20.png'))
-        self.body.append('<input type="radio" name="question" value="%s" />' % \
-                         node["content"])
+        self.body.append('<input type="%s" name="question" value="%s" />' % \
+                         (input_type, node["content"]))
         return
 
     if node['type'] == 'eqt-fib':
@@ -74,38 +82,60 @@ def visit_eqt_answer_type_node(self, node):
     raise ValueError("Directive " + node['type'] + " has not been implemented")
     
 def depart_eqt_answer_type_node(self, node):
+    """
+    Function executed when the node representing the :eqt:`XXX` is left
+    """
     pass
 
 class eqt(nodes.General, nodes.Element): pass
 
 def visit_eqt_node(self, node):
+    """
+    Function executed when the node representing .. eqt:: fff is visited.
+    """
     ### Need to check for the MODE!
 
     suffix = ''
     if node['name'] == 'eqt-fib':
         suffix = '-fib'
-        
+    elif node['name'] == 'eqt-mc':
+        suffix = '-mc'
+
     self.body.append('<div class="reauthoring_embedded_quiz%s" id="%s">' 
                      % (suffix, node["args"][0]))
     self.body.append('<form class="reauthoring_embedded_quiz_questions">')
 
 def depart_eqt_node(self, node):
+    """
+    Function executed when the node representing .. eqt:: fff is left
+    """
     ### Need to check for the MODE!
 
     self.body.append('</form>')
     self.body.append('<div class="reauthoring_embedded_quiz_buttons">')
-    self.body.append('<input class="reauthoring_quiz_button" style="display:none;" ')
-    self.body.append('type="button" value="Grade" />')
-    self.body.append('<input class="reauthoring_quiz_button" style="display:none;" ')
-    self.body.append('type="button" value="Again" />')
-    self.body.append('<input class="reauthoring_quiz_button" style="display:none;" ')
-    self.body.append('type="button" value="Solution" />')
+    self.body.append('<input class="reauthoring_quiz_button reauthoring-grade" ')
+    self.body.append('       style="display:none;" ')
+    self.body.append('       type="button" value="Grade" />')
+    self.body.append('<input class="reauthoring_quiz_button reauthoring-again" ')
+    self.body.append('       style="display:none;" ')
+    self.body.append('       type="button" value="Again" />')
+    self.body.append('<input class="reauthoring_quiz_button reauthoring-solution" ')
+    self.body.append('       style="display:none;" ')
+    self.body.append('       type="button" value="Solution" />')
+    self.body.append('  <img class="correct_icon" style="opacity: 0;"')
+    self.body.append('       src="%s"></img>' % os.path.join(node["p_to_static"],
+                                                             'Correct_20x20.png'))
+    self.body.append('  <img class="incorrect_icon" style="opacity: 0;"')
+    self.body.append('       src="%s"></img>' % os.path.join(node["p_to_static"],
+                                                           'Incorrect_20x20.png'))
+    self.body.append('<span class="reauthoring-embedded-answer"></span>')
     self.body.append('</div>')
     self.body.append('</div>')
 
 class Equestion(Directive):
     """
     Directive to insert a (single answer) multiple choice embedded question.
+    The run method is executed when the .. directive is found when parsing.
     The syntax is:
 
     .. eqt:: question-id
@@ -135,8 +165,10 @@ class Equestion(Directive):
         # Store the type of question in an additional attribute in the
         # environment.
         config.config_values['eqt-question-type'] = self.name
-
-        result = eqt(args = self.arguments, name = self.name)
+        
+        result = eqt(args = self.arguments, name = self.name,
+                     p_to_static = 
+                     common.get_relative_path_to_static(self.state.document))
 
         # Parse the nested content
         self.state.nested_parse(self.content, self.content_offset, result)
@@ -146,7 +178,7 @@ class Equestion(Directive):
 
         # If the question is a single MCQ, check that there is an enumerated
         # list and perform some additional tasks.
-        if self.name == "eqt":
+        if self.name == "eqt" or self.name == "eqt-mc":
             # Loop over the question children to detect which one corresponds to
             # the list of answers and add some additional attributes
             answer_list_node = None
@@ -165,14 +197,16 @@ class Equestion(Directive):
                 answer_list_node['enumtype'] = answer_list_node['enumtype'] + \
                                                ' eqt-answer-list'
             else:
-                raise ValueError('No anwer list found in e-question.')
+                raise ValueError('No answer list found in e-question.')
 
         return [result]
 
 def eqt_answer(name, rawtext, text, lineno, inliner,
                       options={}, content=[]):
 
-    # print 'uuu', inliner.document.settings.env.config['AAA']
+    """
+    Function executed with the role :eqt:`???` is parsed
+    """
 
     # This role has only effect when in HTML mode.
     if inliner.document.settings.env.app.builder.format != 'html':
@@ -198,75 +232,18 @@ def eqt_answer(name, rawtext, text, lineno, inliner,
                                    content = text,
                                    p_to_static = p_to_static)], []
 
-class Equestion_fib(Directive):
-    """
-    Directive to insert a fill-in-the-blank quenestion.
-    The syntax is:
-
-    .. eqt-fib:: question-id
-       :action: The url to send the result
-       :id_field_name: field name in which to put the id
-       :data_field_name: field name in which to put the data
-
-       Text describing the question
-
-       - :eqt:`C` Answer number 1 (which is correct)
-       - :eqt:`I` Answer number 2 (which is incorrect)
-       - :eqt:`I` Answer number 3 (which is incorrect)
-       - :eqt:`I` Answer number 4 (which is incorrect)
-
-
-    The three attributes of the directive (action, id_field_name, and
-    data_field_name) can be set globally for an entire site in the conf.py file
-    as:
-
-    eqt_action = '<<YOUR ACTION>>'
-    eqt_id_field_name = '<<FIELD NAME IN WHICH TO PUT IN THE ID>>'
-    eqt_data_field_name = '<<FIELD NAME IN WHICH TO PUT THE DATA>>'
-    pass
-    """
-
-    has_content = True
-    required_arguments = 1
-    optional_arguments = 0
-    final_argument_whitespace = False
-    option_spec = {
-        "action": directives.uri,
-        "id-field-name": directives.unchanged,
-        "text-field-name": directives.unchanged
-        }
-    
 def setup(app):
 
     app.add_node(eqt,
                  html = (visit_eqt_node,
-                         depart_eqt_node),
-                 latex = (visit_eqt_node,
-                          depart_eqt_node),
-                 text = (visit_eqt_node,
-                         depart_eqt_node),
-                 man = (visit_eqt_node,
-                        depart_eqt_node),
-                 texinfo = (visit_eqt_node,
-                            depart_eqt_node))
+                         depart_eqt_node))
 
     app.add_directive("eqt", Equestion)
     app.add_directive("eqt-fib", Equestion)
-    app.add_config_value('eqt_action', None, True)
-    app.add_config_value('eqt_id_field_name', None, True)
-    app.add_config_value('eqt_data_field_name', None, True)
-    app.add_config_value('eqt_submit_method', 'POST', True)
+    app.add_directive("eqt-mc", Equestion)
 
     roles.register_local_role('eqt', eqt_answer)
 
     app.add_node(eqt_answer_type,
                  html = (visit_eqt_answer_type_node,
-                         depart_eqt_answer_type_node),
-                 latex = (visit_eqt_answer_type_node,
-                          depart_eqt_answer_type_node),
-                 text = (visit_eqt_answer_type_node,
-                         depart_eqt_answer_type_node),
-                 man = (visit_eqt_answer_type_node,
-                        depart_eqt_answer_type_node),
-                 texinfor = (visit_eqt_answer_type_node,
-                             depart_eqt_answer_type_node))
+                         depart_eqt_answer_type_node))
