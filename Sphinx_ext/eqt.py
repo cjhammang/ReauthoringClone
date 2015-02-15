@@ -63,9 +63,9 @@ def visit_eqt_answer_type_node(self, node):
     if node['type'] == 'eqt-fib':
         self.body.append('<div class="reauthoring_embedded_quiz-fib-answer">')
         self.body.append('Answer')
-        self.body.append('<input type="text" name="question" value=""/></li>')
+        self.body.append('<input type="text" name="question" value=""/>')
         self.body.append('<input type="hidden" name="solution" ')
-        self.body.append('value="%s"/></li>' % node["content"])
+        self.body.append('value="%s"/>' % node["content"])
         self.body.append('<img class="correct_icon" style="opacity: 0;')
         self.body.append('padding-left: 0.5em;"')
         self.body.append(' src="%s"></img>' % os.path.join(node["p_to_static"],
