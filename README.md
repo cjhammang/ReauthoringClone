@@ -20,13 +20,13 @@ create your own set of HTML pages.
 ## Steps to install the Authoring Toolkit
 
 
-### Install Python (2.7.9) and Sphinx (latest version)
+### 1) Install Python (2.7.9) and Sphinx (latest version)
 
 [Install Python and Sphinx](http://sphinx-doc.org/latest/install.html)
 
 ---
  
-### Install sphinx_rtd_theme
+### 2) Install sphinx_rtd_theme
 
 Open a command window and type:
 
@@ -37,7 +37,16 @@ You may check the
 
 ---
 
-### Create a sample site
+### 3) Install requirements
+
+Open a command window, make sure you are in the root folder of this project and
+type:
+
+`pip install -r requirements.txt`
+
+---
+
+### 4) Create a sample site
 
 The sample site is available through [this bitbucket reauthoring repository](https://bitbucket.org/abelardopardo/reauthoring)
 
