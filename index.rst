@@ -1,5 +1,5 @@
-Creating Learning Resources with Sphinx-Doc
-===========================================
+Reauthoring: A Toolkit to create Liquid HTML Active Learning Resources
+======================================================================
 
 .. figure:: Images/team_michael_cardus_flickr.jpg
    :width: 150px
@@ -9,36 +9,34 @@ Creating Learning Resources with Sphinx-Doc
 
    `Michael Cardus <https://www.flickr.com/photos/create-learning/9351356386>`_
 
-This documentation serves two purposes. The first one is to show how to use
-`sphinx-doc <http://sphinx-doc.org>`_ to create learning resources. Sphinx is a
-toolkit that transforms a set of files written in `reStructuredText
-<http://sphinx-doc.org/rest.html>`_ into a folder with a self-contained web
-site. This folder is locally stored in your computer, and you can see its
-content with the browser. If you want to make it available to your students,
-you have to copy it to a remote location. If you use a Learning Management
-System (LMS), see if it offers a way to upload a set of files, or even better,
-to copy an entire folder (with sub-folders) remotely. Otherwise, you may need
-to find some alternative way to make the material available through the web.
+Reauthoring is a toolkit that processes documents written in `reStructuredText
+<http://sphinx-doc.org/rest.html>`_ using `sphinx-doc <http://sphinx-doc.org>`_
+with a set of extensions specifically designed to create learning content. The
+result is a folder (``_build/html``) with a self-contained web site where you
+can see the files with your browser. Once you are happy about the content,
+simply copy it to your Learning Management System (LMS) and it is ready to use.
 
-The resulting HTML files are formatted using the `Sphinx Read the Docs Theme
+The HTML files are rendered with the `Sphinx Read the Docs Theme
 <http://docs.readthedocs.org/en/latest/theme.html>`_ which provides a rendering
 that adapts to mobile devices. Once you make this documentation available in a
 server, make sure you check it with a phone or a tablet.
 
-The functionality provided by sphinx has been extended to include features that
-you may use in a learning environment. The links at the bottom of this document
-explain these extensions and how to use them.
+The functionality provided by `sphinx <http://sphinx-doc.org>`_ has been
+extended with directives to create common elements in a learning
+environment. The links at the bottom of this document explain these extensions
+and how to use them.
 
-The second purpose of this document is to serve as a template. You may download
-the files that make up this documentation, read about how to use Sphinx and
-re-purpose it to your needs, perhaps transforming it into your own course
-notes. Any page has a link to the page source, that is, the document given to
-Sphinx to transform it into the HTML you are seeing. Go ahead and take a
-look. *Feel the source, Luke*. 
+You can also use this document (and its sub-pages) as a template for your own
+project. First read about :ref:`Reauthoring-INSTALL`. Then read about how to
+use `Sphinx <http://sphinx-doc.org>`__ and then re-purpose the files to your
+needs and create your own course notes. Any page has a link to the source file,
+that is, the document given to Sphinx to transform it into the HTML you are
+seeing. Go ahead and *Feel the source, Luke*.
 
 .. toctree::
    :maxdepth: 2
 
+   /install
    /Embedded_questions/index
    /Videos/index
    /Sequences/index
@@ -46,8 +44,8 @@ look. *Feel the source, Luke*.
    /Accordion_docs/index
    /Customize/index
 
-We would like to hear about your experience using this authoring toolkit. Drop
-us a note telling us what you think `by creating an issue in our issue tracker
+Drop us a note telling us what you think about the toolkit `by creating an
+issue in our issue tracker
 <https://bitbucket.org/abelardopardo/reauthoring/issues/new>`_.
 
 
