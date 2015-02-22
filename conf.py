@@ -122,6 +122,7 @@ exclude_patterns = [
     '_build',
     '**/.#*.rst',
     'Sequences/Sample',
+    'Sandbox',
     'Samples'
 ]
 
