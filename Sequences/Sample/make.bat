@@ -239,4 +239,8 @@ if "%1" == "pseudoxml" (
 	goto end
 )
 
+IF EXIST Scripts\makefile_add (
+call Scripts\makefile_add
+)
+
 :end
