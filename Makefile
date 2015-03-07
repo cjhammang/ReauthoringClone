@@ -57,18 +57,6 @@ html:
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
-version_tag:
-	python $(REA_SCRIPTS)/version_tag.py
-
-rsync:
-	python $(REA_SCRIPTS)/rsync.py
-
-sanity_check:
-	python $(REA_SCRIPTS)/sanity_check.py
-
-link_checkedr:
-	python $(REA_SCRIPTS)/link_checker.py
-
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
 	@echo
@@ -191,5 +179,38 @@ pseudoxml:
 	@echo
 	@echo "Build finished. The pseudo-XML files are in $(BUILDDIR)/pseudoxml."
 
--include $(REA_SCRIPTS)/makefile_include.mk
+version_tag:
+	@if [ -f Reauthoring/Scripts/version_tag.py ]; then \
+	    python Reauthoring/Scripts/version_tag.py; \
+	elif [ -f Scripts/version_tag.py ]; then \
+	    python Scripts/version_tag.py; \
+	elif [ -f $(REA_SCRIPTS)/version_tag.py ]; then \
+	    python $(REA_SCRIPTS)/version_tag.py; \
+	fi
 
+rsync:
+	@if [ -f Reauthoring/Scripts/rsync.py ]; then \
+	    python Reauthoring/Scripts/rsync.py; \
+	elif [ -f Scripts/rsync.py ]; then \
+	    python Scripts/rsync.py; \
+	elif [ -f $(REA_SCRIPTS)/rsync.py ]; then \
+	    python $(REA_SCRIPTS)/rsync.py; \
+	fi
+
+sanity_check:
+	@if [ -f Reauthoring/Scripts/sanity_check.py ]; then \
+	    python Reauthoring/Scripts/sanity_check.py; \
+	elif [ -f Scripts/sanity_check.py ]; then \
+	    python Scripts/sanity_check.py; \
+	elif [ -f $(REA_SCRIPTS)/sanity_check.py ]; then \
+	    python $(REA_SCRIPTS)/sanity_check.py; \
+	fi
+
+link_checker:
+	@if [ -f Reauthoring/Scripts/link_checker.py ]; then \
+	    python Reauthoring/Scripts/link_checker.py; \
+	elif [ -f Scripts/link_checker.py ]; then \
+	    python Scripts/link_checker.py; \
+	elif [ -f $(REA_SCRIPTS)/link_checker.py ]; then \
+	    python $(REA_SCRIPTS)/link_checker.py; \
+	fi

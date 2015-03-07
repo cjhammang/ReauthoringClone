@@ -69,7 +69,16 @@ if "%1" == "html" (
 )
 
 if "%1" == "version_tag" (
+     	if exist Scripts\version_tag.py (
+	python Scripts\version_tag.py 
+        ) else if exist Reauthoring\Scripts\version_tag.py (
+	python Reauthoring\Scripts\version_tag.py 
+        ) else if exist %REA_SCRIPTS\version_tag.py (
 	python %REA_SCRIPTS/version_tag.py 
+	else (
+	    echo.Reauthoring scripts not found.
+   	    goto end
+        )
 	if errorlevel 1 exit /b 1
 	echo.
 	echo.A new version tag has been created.
@@ -77,7 +86,16 @@ if "%1" == "version_tag" (
 )
 
 if "%1" == "rsync" (
+     	if exist Scripts\rsync.py (
+	python Scripts\rsync.py 
+        ) else if exist Reauthoring\Scripts\rsync.py (
+	python Reauthoring\Scripts\rsync.py 
+        ) else if exist %REA_SCRIPTS\rsync.py (
 	python %REA_SCRIPTS/rsync.py 
+	else (
+	    echo.Reauthoring scripts not found.
+   	    goto end
+        )
 	if errorlevel 1 exit /b 1
 	echo.
 	echo.Files sychronized with remote repository.
@@ -85,18 +103,36 @@ if "%1" == "rsync" (
 )
 
 if "%1" == "sanity_check" (
+     	if exist Scripts\sanity_check.py (
+	python Scripts\sanity_check.py 
+        ) else if exist Reauthoring\Scripts\sanity_check.py (
+	python Reauthoring\Scripts\sanity_check.py 
+        ) else if exist %REA_SCRIPTS\sanity_check.py (
 	python %REA_SCRIPTS/sanity_check.py 
+	else (
+	    echo.Reauthoring scripts not found.
+   	    goto end
+        )
 	if errorlevel 1 exit /b 1
 	echo.
-	echo.Files sychronized with remote repository.
+	echo.Sanity check procedure executed
 	goto end
 )
 
 if "%1" == "link_checker" (
+     	if exist Scripts\link_checker.py (
+	python Scripts\link_checker.py 
+        ) else if exist Reauthoring\Scripts\link_checker.py (
+	python Reauthoring\Scripts\link_checker.py 
+        ) else if exist %REA_SCRIPTS\link_checker.py (
 	python %REA_SCRIPTS/link_checker.py 
+	else (
+	    echo.Reauthoring scripts not found.
+   	    goto end
+        )
 	if errorlevel 1 exit /b 1
 	echo.
-	echo.Files sychronized with remote repository.
+	echo.Link Checker Executed
 	goto end
 )
 
