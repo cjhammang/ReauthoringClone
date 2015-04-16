@@ -63,7 +63,8 @@ extensions = [
     'Sphinx_ext.eqt', 
     'Sphinx_ext.html_form', 
     'Sphinx_ext.instructor_feedback',
-    'Sphinx_ext.instructor_guide'
+    'Sphinx_ext.instructor_guide',
+    'Sphinx_ext.questions'
 ]
 
 # If we are processing the iguide, then change the "
@@ -376,5 +377,5 @@ linkchecker_ignore_urls = [
 #
 ################################################################################
 publish_src_folder = '_build/html/'
-publish_dst_folder = ''
+publish_dst_folder = 'ubuntu@latte.ee.usyd.edu.au:/var/www/html/Reauthoring'
 publish_extra_args = []
