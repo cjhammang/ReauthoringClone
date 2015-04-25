@@ -1,6 +1,6 @@
-============
- Activities
-============
+**********
+Activities
+**********
 
 The use of reStructuredText in combination with Sphinx allows for a very simple
 use of *templates* for certain learning resources. A template is simply a

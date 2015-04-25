@@ -1,8 +1,8 @@
 .. _Embedded-MCQ:
 
-=============================
- Questions Embedded in Notes
-=============================
+***************************
+Questions Embedded in Notes
+***************************
 
 These extensions insert several question types in the middle of the text with
 their automatic assessment. Students can check the answer immediately. The kit
@@ -12,7 +12,7 @@ supports the following type of questions:
 - Fill in the blank (fixed answer)
 
 Multiple Choice with One Correct Answer
----------------------------------------
+=======================================
 
 The directive to insert a multiple choice question with a single correct answer
 is::
@@ -59,7 +59,7 @@ questions of this type.
    sample_eqt
 
 Multiple Choice with Multiple Answers Correct
----------------------------------------------
+=============================================
 
 The directive to insert a multiple choice question with multiple correct
 answers is::
@@ -93,7 +93,7 @@ previous case. The result is:
    #) :eqt:`C` Base 16
 
 Fill in the Blank
------------------
+=================
 
 The directive to insert these questions is almost identical to the previous one
 with a slight difference in the first line and the way you specify the answer:: 

@@ -1,6 +1,6 @@
-====================================
- Embedding Youtube Videos in a page
-====================================
+**********************************
+Embedding Youtube Videos in a page
+**********************************
 
 This extension is to simplify the inclusion of videos already existing in
 YouTube as part of your notes. The videos are included in the way you usually

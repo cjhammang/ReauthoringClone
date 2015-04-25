@@ -1,6 +1,6 @@
-============================
+****************************
 How to Customize these Pages
-============================
+****************************
 
 The main source of customization for these pages is the file ``conf.py``
 located at the root of the repository. The variables and values are described
@@ -30,7 +30,7 @@ There are four other sources of customization that you can explore:
    pages. Modify these files to reshape the overall structure of the page.
 
 Use Reauthoring as a submodule of your project
-----------------------------------------------
+==============================================
 
 If instead of using this whole project as your template you prefer to create
 your own and still use some of the features provided by Reauthoring, you may

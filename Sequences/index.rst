@@ -1,6 +1,6 @@
-===================================================
- Multiple Choice Exercises for Sequential Delivery
-===================================================
+*************************************************
+Multiple Choice Exercises for Sequential Delivery
+*************************************************
 
 This functionality is still relying on Sphinx to generate content, but it needs
 and additional application to by fully deployed. The idea is to define a set of

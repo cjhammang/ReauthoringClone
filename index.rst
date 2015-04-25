@@ -1,5 +1,7 @@
+
+######################################################################
 Reauthoring: A Toolkit to create Liquid HTML Active Learning Resources
-======================================================================
+######################################################################
 
 .. figure:: Images/team_michael_cardus_flickr.jpg
    :width: 150px

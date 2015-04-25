@@ -36,6 +36,12 @@ div.logobgn {
     text-align: center;
 }
 
+/* HR separating breadcrumbs with smaller margin */
+div.rst-content > div[role=navigation] > hr { 
+    margin: 10px 0px;
+}
+
+
 /* ------------------------------------------------------------ */
 /*                                                              */
 /* Matrix of topics                                             */
