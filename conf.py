@@ -64,7 +64,7 @@ extensions = [
     'Sphinx_ext.html_form', 
     'Sphinx_ext.instructor_feedback',
     'Sphinx_ext.instructor_guide',
-    'Sphinx_ext.questions'
+    'Sphinx_ext.iframe'
 ]
 
 # If we are processing the iguide, then change the "
