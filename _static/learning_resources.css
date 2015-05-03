@@ -377,6 +377,11 @@ button[disabled] label {
     cursor: default;
 }
 
+iframe.reauthoring {
+    width: 100%;
+    border: 1px solid black;
+}
+
 /* Style for printing */
 @media print {
 }
