@@ -24,7 +24,7 @@
 
 from __future__ import division
 
-import os, sys
+import os, sys, posixpath
 from docutils import nodes
 from docutils.parsers.rst import directives
 from docutils.parsers.rst import roles
@@ -49,12 +49,12 @@ def visit_eqt_answer_type_node(self, node):
 
         self.body.append('<img class="correct_icon"')
         self.body.append(' style="opacity: 0; margin-left: -23px;"')
-        self.body.append(' src="%s"></img>' % os.path.join(node["p_to_static"],
+        self.body.append(' src="%s"></img>' % posixpath.join(node["p_to_static"],
                                                            'Correct_20x20.png'))
         self.body.append('<img class="incorrect_icon"')
         self.body.append(' style="opacity: 0; margin-left: -23px;"')
         self.body.append(' src="%s"></img>' 
-                         % os.path.join(node["p_to_static"],
+                         % posixpath.join(node["p_to_static"],
                                         'Incorrect_20x20.png'))
         self.body.append('<input type="%s" name="question" value="%s" />' % \
                          (input_type, node["content"]))
@@ -68,11 +68,11 @@ def visit_eqt_answer_type_node(self, node):
         self.body.append('value="%s"/>' % node["content"])
         self.body.append('<img class="correct_icon" style="opacity: 0;')
         self.body.append('padding-left: 0.5em;"')
-        self.body.append(' src="%s"></img>' % os.path.join(node["p_to_static"],
+        self.body.append(' src="%s"></img>' % posixpath.join(node["p_to_static"],
                                                            'Correct_20x20.png'))
         self.body.append('<img class="incorrect_icon" style="opacity: 0;"')
         self.body.append(' src="%s"></img>' 
-                         % os.path.join(node["p_to_static"],
+                         % posixpath.join(node["p_to_static"],
                                         'Incorrect_20x20.png'))
         self.body.append('</div>')
         return
@@ -123,11 +123,13 @@ def depart_eqt_node(self, node):
     self.body.append('       style="display:none;" ')
     self.body.append('       type="button" value="Solution" />')
     self.body.append('  <img class="correct_icon" style="opacity: 0;"')
-    self.body.append('       src="%s"></img>' % os.path.join(node["p_to_static"],
-                                                             'Correct_20x20.png'))
+    self.body.append('       src="%s"></img>' \
+                     % posixpath.join(node["p_to_static"],
+                                      'Correct_20x20.png'))
     self.body.append('  <img class="incorrect_icon" style="opacity: 0;"')
-    self.body.append('       src="%s"></img>' % os.path.join(node["p_to_static"],
-                                                           'Incorrect_20x20.png'))
+    self.body.append('       src="%s"></img>' \
+                     % posixpath.join(node["p_to_static"], 
+                                      'Incorrect_20x20.png'))
     self.body.append('<span class="reauthoring-embedded-answer"></span>')
     self.body.append('</div>')
     self.body.append('</div>')

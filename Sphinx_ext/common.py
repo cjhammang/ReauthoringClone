@@ -22,7 +22,7 @@
 # Author: Abelardo Pardo (abelardo.pardo@sydney.edu.au)
 #
 
-import sys,os
+import sys,os, posixpath
 
 def get_relative_path_to_static(document):
     docname = document.get("source")
@@ -36,7 +36,7 @@ def get_relative_path_to_static(document):
     build_dir = os.path.join(builder.outdir, build_suffix)
     static_dir = os.path.join(builder.outdir, '_static')
 
-    return os.path.relpath(static_dir, build_dir)
+    return posixpath.relpath(static_dir, build_dir)
 
 def get_parameter_value(config, options, key, config_key, enforce_set = True):
     value = options.get(key, None)
