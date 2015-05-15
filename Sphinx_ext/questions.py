@@ -38,13 +38,6 @@ def skip_visit(self, node):
 
 def visit_question_node(self, node):
 
-    print
-    print 'VISITING!!!'
-    print
-    print node["name"]
-    print node["args"]
-    print
-
     # Get the question ID from the given label
     if len(node["args"]) == 1:
         question_id = node["args"][0]
@@ -62,10 +55,6 @@ def visit_question_node(self, node):
 
 def depart_question_node(self, node):
 
-    print
-    print 'Departing!!!'
-    print
-
     question_id = node["args"][0]
     rows = node["rows"]
     columns = node["columns"]
@@ -79,7 +68,7 @@ def depart_question_node(self, node):
     elif node["name"] == 'question-o':
         options = node["options"]
         if options != []:
-            self.body.append('<select name="options-%s" %s>' % \
+            self.body.append('<select name="%s" %s>' % \
                              (question_id, other_params))
             for txt in options:
                 self.body.append('<option value="%s">%s</option>' % (txt, txt))
@@ -100,29 +89,28 @@ class Question(Directive):
     """Directive to insert a question and catch the answer as an HTML form. The
     direcive has three systax forms:
 
-    .. question-s: (for short versions)
+    .. question-s: QUESTION-ID (for short versions, a few words)
 
        QUESTION TEXT
 
-    .. question: (for large versions)
+    .. question: QUESTION-ID (for large versions)
        :rows: n
        :columns: m
 
        QUESTION TEXT
 
-    .. question-o: (for a list of options)
+    .. question-o: QUESTION-ID (for a list of options)
        :options: a, b, c, d, e, f, g
 
        QUESTION TEXT
 
     The "other_params" option can be used in any of them and is copied literally
     to the HTML element (input, select, or textarea)
-
     """
 
     has_content = True
     required_arguments = 1
-    optional_arguments = 3
+    optional_arguments = 0
     final_argument_whitespace = False
     option_spec = {
         "rows": directives.positive_int,
@@ -161,17 +149,14 @@ class Question(Directive):
 
 def setup(app):
     app.add_node(question, 
-                 html = (visit_question_node, 
-                         depart_question_node),
-                 latex = (skip_visit, skip_visit),
-                 text = (skip_visit, skip_visit),
-                 man = (skip_visit, skip_visit),
+                 html    = (visit_question_node, 
+                            depart_question_node),
+                 latex   = (skip_visit, skip_visit),
+                 text    = (skip_visit, skip_visit),
+                 man     = (skip_visit, skip_visit),
                  texinfo = (skip_visit, skip_visit))
 
     # Declaring the directive
-    # app.add_directive("question",   Question)
-    # app.add_directive("question-s", Question)
-    # app.add_directive("question-o", Question)
-
-
-    
+    app.add_directive("question",   Question)
+    app.add_directive("question-s", Question)
+    app.add_directive("question-o", Question)
