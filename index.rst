@@ -50,16 +50,3 @@ Drop us a note telling us what you think about the toolkit `by creating an
 issue in our issue tracker
 <https://bitbucket.org/abelardopardo/reauthoring/issues/new>`_.
 
-..
-   .. question:: regular-question
-
-      aaa
-   .. question-o:: option
-      :options: a, b, c, d
-
-      aaa
-
-   .. question-s:: short
-
-      aaa
-
