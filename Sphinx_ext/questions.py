@@ -125,12 +125,6 @@ class Question(Directive):
         options = self.options.get('options', '')
         other_params = self.options.get('other_params', '')
 
-        print
-        print 'Running!!!'
-        print
-        print self.name
-        print
-
         # Get the path to the static directory containing the images
         p_to_static = common.get_relative_path_to_static(self.state.document)
 
