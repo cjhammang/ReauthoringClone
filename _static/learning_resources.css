@@ -38,7 +38,7 @@ div.logobgn {
 
 /* HR separating breadcrumbs with smaller margin */
 div.rst-content > div[role=navigation] > hr { 
-    margin: 10px 0px;
+    margin: 0px 0px;
 }
 
 
