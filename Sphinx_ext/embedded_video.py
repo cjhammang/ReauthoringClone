@@ -20,6 +20,7 @@
 # Boston, MA  02110-1301, USA.
 #
 # Author: Abelardo Pardo (abelardo.pardo@sydney.edu.au)
+# Collaboration: Xavier Ochoa (xavier@cti.espol.edu.ec)
 #
 
 from __future__ import division
@@ -34,8 +35,20 @@ from Sphinx_ext import html_form, common
 class embedded_video(nodes.General, nodes.Element): pass
 
 def visit_embedded_video_node(self, node):
+    # Initialize variables for start and end of segment
+    start="0"
+    end="10000000" #Hopefully higher than any real value
+    
     # Get the argument
     video_id = node["args"][0]
+    # If only start is set
+    if len(node["args"]) == 2:
+        start = node["args"][1]
+    # If start and end are set
+    if len(node["args"]) == 3:
+        start = node["args"][1]
+        end = node["args"][2]
+    
 
     # Get the params
     elem_id = node['element_id']
@@ -48,9 +61,9 @@ def visit_embedded_video_node(self, node):
     self.body.append("""array_video_embed['%s'] = {height: '%s', 
                                         width: '%s',
                                         videoId: '%s',
-                                        playerVars: {rel: 0},
+                                        playerVars: {rel: 0, start: '%s', end: '%s'},
                                         events: {'onStateChange': onPlayerStateChange}};""" % \
-                         (elem_id, height, width, video_id))
+                         (elem_id, height, width, video_id, start, end))
     self.body.append("</script>")
     self.body.append("</div>")
     
@@ -70,8 +83,8 @@ class Embedded_video(Directive):
     """
 
     has_content = False
-    required_arguments = 1
-    optional_arguments = 0
+    required_arguments = 1 # videoId
+    optional_arguments = 2 # start end
     final_argument_whitespace = False
     option_spec = {
         "height": directives.nonnegative_int,
@@ -103,4 +116,3 @@ def setup(app):
 
     app.add_config_value('embedded_video_height', 390, True)
     app.add_config_value('embedded_video_width', "100%", True)
-    
