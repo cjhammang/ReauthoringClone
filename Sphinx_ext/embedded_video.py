@@ -19,8 +19,8 @@
 # Foundation, Inc., 51 Franklin Street, Fifth Floor
 # Boston, MA  02110-1301, USA.
 #
-# Author: Abelardo Pardo (abelardo.pardo@sydney.edu.au)
-# Collaboration: Xavier Ochoa (xavier@cti.espol.edu.ec)
+# Authors: Abelardo Pardo (abelardo.pardo@sydney.edu.au)
+#          Xavier Ochoa (xavier@cti.espol.edu.ec)
 #
 
 from __future__ import division
@@ -38,7 +38,7 @@ def visit_embedded_video_node(self, node):
     # Initialize variables for start and end of segment
     start="0"
     end="10000000" #Hopefully higher than any real value
-    
+
     # Get the argument
     video_id = node["args"][0]
     # If only start is set
@@ -48,7 +48,7 @@ def visit_embedded_video_node(self, node):
     if len(node["args"]) == 3:
         start = node["args"][1]
         end = node["args"][2]
-    
+
 
     # Get the params
     elem_id = node['element_id']
@@ -58,7 +58,7 @@ def visit_embedded_video_node(self, node):
     # Deploy the div with the script inside
     self.body.append('<div id="%s" class="embedded-video">' % elem_id)
     self.body.append('<script type="text/javascript">')
-    self.body.append("""array_video_embed['%s'] = {height: '%s', 
+    self.body.append("""array_video_embed['%s'] = {height: '%s',
                                         width: '%s',
                                         videoId: '%s',
                                         playerVars: {rel: 0, start: '%s', end: '%s'},
@@ -66,8 +66,8 @@ def visit_embedded_video_node(self, node):
                          (elem_id, height, width, video_id, start, end))
     self.body.append("</script>")
     self.body.append("</div>")
-    
-    
+
+
 def depart_embedded_video_node(self, node):
     pass
 
@@ -78,7 +78,7 @@ class Embedded_video(Directive):
     .. embedded-video:: videoId
        :height: value
        :width: value
-       
+
 
     """
 
@@ -93,12 +93,12 @@ class Embedded_video(Directive):
 
     def run(self):
         config = self.state.document.settings.env.config
-        
-        height = common.get_parameter_value(config, self.options, 'height', 
+
+        height = common.get_parameter_value(config, self.options, 'height',
                                             'embedded_video_height')
-        width = common.get_parameter_value(config, self.options, 'width', 
+        width = common.get_parameter_value(config, self.options, 'width',
                                            'embedded_video_width')
-        
+
         element_id = 'embedded-video-%s' % \
             self.state.document.settings.env.new_serialno('embedded-video')
 
