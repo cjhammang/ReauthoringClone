@@ -64,6 +64,7 @@ extensions = [
     'Sphinx_ext.html_form', 
     'Sphinx_ext.instructor_feedback',
     'Sphinx_ext.instructor_guide',
+    'Sphinx_ext.questions',
     'Sphinx_ext.iframe'
 ]
 
@@ -379,3 +380,11 @@ linkchecker_ignore_urls = [
 publish_src_folder = '_build/html/'
 publish_dst_folder = 'ubuntu@latte.ee.usyd.edu.au:/var/www/html/Reauthoring'
 publish_extra_args = []
+
+################################################################################
+#
+# Symbols visible to the building phase
+#
+################################################################################
+def setup(app):
+    app.add_config_value('tags', tags, True)
