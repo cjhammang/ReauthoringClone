@@ -7,17 +7,17 @@
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; either version 2
  * of the License, or (at your option) any later version.
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor
  * Boston, MA  02110-1301, USA.
- * 
+ *
  * Author: Abelardo Pardo (abelardo.pardo@sydney.edu.au)
  *
  */
@@ -32,15 +32,19 @@
  }
 
 /* Center logo and title */
-div.logobgn { 
+div.logobgn {
     text-align: center;
 }
 
 /* HR separating breadcrumbs with smaller margin */
-div.rst-content > div[role=navigation] > hr { 
+div.rst-content > div[role=navigation] > hr {
     margin: 0px 0px;
 }
 
+/* Reduce separation of content box */
+div.wy-nav-content {
+  padding-top: 0.5em;
+}
 
 /* ------------------------------------------------------------ */
 /*                                                              */
@@ -72,6 +76,12 @@ button.topic-matrix
 
 label { color: #222; }
 
+div.instructor-guide {
+  text-align: center;
+  background-color: red;
+  color: black;
+ }
+
 /* Instructor guide and "framed" goes in a frame! */
 div.iguide,
 div.framed {
@@ -79,19 +89,23 @@ div.framed {
     padding: 3px;
  }
 
+.wy-side-nav-search {
+    margin-bottom: 0px;
+ }
+
 /* Admonition background */
 div.admonition-iguide,
 div.admonition-solution,
 div.admonition-example,
 div.admonition.example,
-div.admonition.important, 
-div.admonition.instruction, 
+div.admonition.important,
+div.admonition.instruction,
 div.admonition-important {
     background-color: #EEEEEE;
 }
 
 .wy-alert-title, .rst-content .admonition-title
-{ 
+{
   margin: 0px;
  }
 
@@ -125,7 +139,7 @@ div.reference p.caption {
    font-size: 70%;
 }
 
-p.caption { 
+p.caption {
    margin-bottom: 0px;
  }
 
@@ -242,7 +256,7 @@ div.body h4.html-toggle-button:hover
 .html-toggle-button:hover a.headerlink:not(:hover) { opacity: 0; }
 
 /*****************************************************
-  DURATION 
+  DURATION
 *****************************************************/
 div.reauthoring_duration_select {
    text-align: right;
@@ -260,29 +274,29 @@ div.reauthoring_embedded_quiz-fib
     padding: 0.5em;
  }
 
-ol.eqt-answer-list 
+ol.eqt-answer-list
 {
     padding: 10px;
 }
 
 div.reauthoring_embedded_quiz-fib .reauthoring_embedded_quiz-fib-answer
-{ 
+{
   margin: 0.5em 0 0.5em 0;
  }
 /*****************************************************
 contents:: directive
 *****************************************************/
 div.contents
-{ 
+{
   border: solid 1px black;
   padding-left: 0.5em;
   padding-bottom: 0.5em;
   margin-bottom: 0.5em;
-}  
+}
 
 /* top banner with my name */
 .logobgn
-{ 
+{
   background-image: url("logo.png");
   background-position: left center;
   background-repeat: no-repeat;
@@ -295,8 +309,8 @@ div.contents
   background-color: #12416c;
 }
 
-div[role = search] 
-{ 
+div[role = search]
+{
   text-align: center;
  }
 
@@ -314,26 +328,26 @@ div.rst-content h6 {
 div.week > h1,
 div.rst-content div.week div.todo > h2,
 div.rst-content div.week div.toknow > h2,
-div.rst-content div.week div.sessions > h2, 
+div.rst-content div.week div.sessions > h2,
 div.lecture.inclass > h1,
 div.lecture.previous > h1,
 div.laboratory.previous > h1,
-div.laboratory.inclass > h1 { 
+div.laboratory.inclass > h1 {
     background-position: left center;
     background-repeat: no-repeat;
  }
 
-div.rst-content div.week > h1 { 
+div.rst-content div.week > h1 {
     background-image: url("calendar.png");
     padding-left: 45px;
  }
 
-div.rst-content div.week div.todo > h2 { 
+div.rst-content div.week div.todo > h2 {
     background-image: url("todo.png");
     padding-left: 55px;
  }
 
-div.rst-content div.week div.toknow > h2 { 
+div.rst-content div.week div.toknow > h2 {
     background-image: url("toknow.png");
     padding-left: 40px;
  }
@@ -342,7 +356,7 @@ div.rst-content div.week div.toknow > h2 {
 #to-know,
 div.lecture,
 div.tutorial,
-div.laboratory { 
+div.laboratory {
   margin-top: 1em;
   border: 1px solid black;
 }
@@ -352,10 +366,10 @@ div.laboratory {
 div.lecture > h2,
 div.tutorial > h2,
 div.laboratory > h2 {
-    margin-top: 0px;               
+    margin-top: 0px;
 }
 
-#table-course-assessment td { 
+#table-course-assessment td {
     text-align: center;
  }
 
