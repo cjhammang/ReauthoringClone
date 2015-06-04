@@ -22,8 +22,6 @@ ALLSPHINXOPTSIGUIDE = -d $(BUILDDIRIGUIDE)/doctrees $(PAPEROPT_$(PAPER)) $(SPHIN
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
-REA_SCRIPTS = Scripts
-
 .PHONY: help clean html html_iguide dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
 
 help:
@@ -53,7 +51,7 @@ help:
 	@echo "  doctest    to run all doctests embedded in the documentation (if enabled)"
 
 clean:
-	rm -rf $(BUILDDIR)/*
+	-rm -rf $(BUILDDIR)/*
 
 clean_iguide:
 	-rm -rf $(BUILDDIRIGUIDE)/*
