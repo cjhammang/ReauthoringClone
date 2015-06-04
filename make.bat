@@ -6,7 +6,9 @@ if "%SPHINXBUILD%" == "" (
 	set SPHINXBUILD=sphinx-build
 )
 set BUILDDIR=_build
+set BUILDDIRIGUIDE= %BUILDDIR%_iguide
 set ALLSPHINXOPTS=-d %BUILDDIR%/doctrees %SPHINXOPTS% .
+set ALLSPHINXOPTSIGUIDE=-d %BUILDDIRIGUIDE%/doctrees %SPHINXOPTS% .
 set I18NSPHINXOPTS=%SPHINXOPTS% .
 if NOT "%PAPER%" == "" (
 	set ALLSPHINXOPTS=-D latex_paper_size=%PAPER% %ALLSPHINXOPTS%
@@ -46,6 +48,11 @@ if "%1" == "clean" (
 	goto end
 )
 
+if "%1" == "clean_iguide" (
+	for /d %%i in (%BUILDDIRIGUIDE%\*) do rmdir /q /s %%i
+	del /q /s %BUILDDIRIGUIDE%\*
+	goto end
+)
 
 %SPHINXBUILD% 2> nul
 if errorlevel 9009 (
@@ -65,6 +72,14 @@ if "%1" == "html" (
 	if errorlevel 1 exit /b 1
 	echo.
 	echo.Build finished. The HTML pages are in %BUILDDIR%/html.
+	goto end
+)
+
+if "%1" == "html_iguide" (
+	%SPHINXBUILD% -c .. -b html -t iguide %ALLSPHINXOPTSIGUIDE% %BUILDDIRIGUIDE%/html
+	if errorlevel 1 exit /b 1
+	echo.
+	echo.Build finished. The HTML pages are in %BUILDDIRIGUIDE%/html.
 	goto end
 )
 
