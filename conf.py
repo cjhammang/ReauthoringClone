@@ -68,10 +68,6 @@ extensions = [
     'Sphinx_ext.iframe'
 ]
 
-# If we are processing the iguide, then change the "
-if tags.has('iguide'):
-    html_context['iguide'] = 'iguide'
-
 # E_QUESTION EXTENSION CONF
 #
 eqt_action = global_data_entry_url
@@ -121,7 +117,7 @@ release = '1.0'
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 exclude_patterns = [
-    '_build',
+    '_build*',
     '**/.#*.rst',
     'Sequences/Sample',
     'Sandbox',
@@ -254,6 +250,9 @@ html_context = {
     'data_capture_context_name': global_data_context_field_name
 }
 
+# If we are processing the iguide, then change the "
+if tags.has('iguide'):
+    html_context['iguide'] = 'iguide'
 
 # -- Options for LaTeX output ---------------------------------------------
 
