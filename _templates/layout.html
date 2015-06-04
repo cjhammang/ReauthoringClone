@@ -106,6 +106,9 @@
       <div class="wy-side-nav-search logobgn">
         <a href="{{ pathto(master_doc) }}" class="fa fa-home"> {{ project }}</a>
       </div>
+      {% if iguide %}
+        <div class="instructor-guide">Instructor Guide</div>
+      {% endif %}
       <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
         {% set toctree = toctree(maxdepth=2, collapse=False, includehidden=True) %}
         {% if toctree %}
@@ -128,6 +131,9 @@
         <a href="{{ pathto(master_doc) }}">{{ project }}</a>
       </nav>
 
+      {% if iguide %}
+        <div class="instructor-guide">Instructor Guide</div>
+      {% endif %}
 
       {# PAGE CONTENT #}
       <div class="wy-nav-content">
