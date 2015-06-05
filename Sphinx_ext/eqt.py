@@ -52,9 +52,9 @@ def visit_eqt_answer_type_node(self, node):
         # If in instructor mode, write the solution of the question
         if self.builder.config.tags.has('iguide'):
             if node["content"] == 'C':
-                self.body.append('(Correct)')
+                self.body.append('<strong>[Correct]</strong>')
             else:
-                self.body.append('(Incorrect)')
+                self.body.append('<strong>[Incorrect]</strong>')
         return
 
     if node['type'] == 'eqt-fib':
@@ -66,7 +66,7 @@ def visit_eqt_answer_type_node(self, node):
 
         # If in instructor mode, write the solution
         if self.builder.config.tags.has('iguide'):
-            self.body.append(' (%s)' % node["content"])
+            self.body.append(' <strong>[%s]</strong>' % node["content"])
 
         self.body.append('</div>')
         return
