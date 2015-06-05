@@ -129,11 +129,10 @@
       <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
         <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
         <a href="{{ pathto(master_doc) }}">{{ project }}</a>
+        {% if iguide %}
+          <div class="instructor-guide">Instructor Guide</div>
+        {% endif %}
       </nav>
-
-      {% if iguide %}
-        <div class="instructor-guide">Instructor Guide</div>
-      {% endif %}
 
       {# PAGE CONTENT #}
       <div class="wy-nav-content">
