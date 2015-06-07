@@ -56,15 +56,14 @@ global_data_context_field_name = 'leco_context_field'
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 extensions = [
-    'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
+    'sphinx.ext.mathjax',
     'Sphinx_ext.activity_duration',
-    'Sphinx_ext.embedded_video',
-    'Sphinx_ext.eqt', 
     'Sphinx_ext.html_form', 
     'Sphinx_ext.instructor_feedback',
+    'Sphinx_ext.eqt', 
     'Sphinx_ext.instructor_guide',
-    'Sphinx_ext.questions',
+    'Sphinx_ext.embedded_video',
     'Sphinx_ext.iframe'
 ]
 
