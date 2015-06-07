@@ -127,7 +127,7 @@ def depart_eqt_node(self, node):
     self.body.append('<span class="reauthoring-embedded-answer"></span>')
     self.body.append('</div>')
 
-    # If it is the instructor guide, pring the id of the question
+    # If it is the instructor guide, print the id
     if self.builder.config.tags.has('iguide'):
         self.body.append('<div class="reauthoring_embedded_quiz_eqtid">')
         self.body.append('<strong>Question ID: %s </strong>' % node["args"][0])
