@@ -57,6 +57,13 @@ def visit_embedded_video_node(self, node):
 
     # Deploy the div with the script inside
     self.body.append('<div id="%s" class="embedded-video">' % elem_id)
+
+    # If it is the instructor guide, print the id
+    if self.builder.config.tags.has('iguide'):
+        self.body.append('<div class="embedded-video-id">')
+        self.body.append('<strong>Video ID: %s</strong>' % elem_id)
+        self.body.append('</div>')
+
     self.body.append('<script type="text/javascript">')
     self.body.append("""array_video_embed['%s'] = {height: '%s',
                                         width: '%s',
