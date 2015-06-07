@@ -87,13 +87,13 @@ def depart_question_node(self, node):
 
 class Question(Directive):
     """Directive to insert a question and catch the answer as an HTML form. The
-    direcive has three systax forms:
+    direcive has three formats:
 
-    .. question-s: QUESTION-ID (for short versions, a few words)
+    .. question-s: QUESTION-ID (for short answer, a few words)
 
        QUESTION TEXT
 
-    .. question: QUESTION-ID (for large versions)
+    .. question: QUESTION-ID (for large answer, a paragraph)
        :rows: n
        :columns: m
 
