@@ -42,26 +42,25 @@ class embedded_video(nodes.General, nodes.Element): pass
 def visit_embedded_video_node(self, node):
     youtube_template = """<script type="text/javascript">
         array_video_embed['{0}'] = {{height: '{1}', width: '{2}', videoId: '{3}',
-        playerVars: {{rel: 0, start: '{4}', end: '{5}'}},
+        playerVars: {{rel: 0{4}{5}}},
         events: {{'onStateChange': onPlayerStateChange}}}};</script>"""
 
-    vimeo_template = """<iframe src="https://player.vimeo.com/video/{0}" 
-      width="{1}" height="{2}" id="{3} frameborder="0" webkitallowfullscreen 
+    vimeo_template = """<iframe src="https://player.vimeo.com/video/{0}"
+      width="{1}" height="{2}" id="{3}" frameborder="0" webkitallowfullscreen
         mozallowfullscreen allowfullscreen></iframe>"""
 
     # Initialize variables for start and end of segment
-    start="0"
-    end="10000000" #Hopefully higher than any real value
+    start_str = ""
+    end_str = ""
 
     # Get the argument
     video_id = node["args"][0]
     # If only start is set
-    if len(node["args"]) == 2:
-        start = node["args"][1]
+    if len(node["args"]) >= 2:
+        start_str = ", start: '{0}'".format(node["args"][1])
     # If start and end are set
     if len(node["args"]) == 3:
-        start = node["args"][1]
-        end = node["args"][2]
+        end_str = ", end: '{0}'".format(node["args"][2])
 
     # Get the params
     elem_id = node['element_id']
@@ -87,8 +86,8 @@ def visit_embedded_video_node(self, node):
                                                  height,
                                                  width,
                                                  video_id,
-                                                 start,
-                                                 end))
+                                                 start_str,
+                                                 end_str))
     elif vformat == 'vimeo':
         #
         # VIMEO
@@ -134,7 +133,7 @@ class Embedded_video(Directive):
         width = common.get_parameter_value(config, self.options, 'width',
                                            'embedded_video_width')
 
-        vformat = common.get_parameter_value(config, self.options, 
+        vformat = common.get_parameter_value(config, self.options,
                                                   'format',
                                                   'embedded_video_format')
 
@@ -159,14 +158,3 @@ def setup(app):
     app.add_config_value('embedded_video_height', 390, True)
     app.add_config_value('embedded_video_width', "100%", True)
     app.add_config_value('embedded_video_format', "youtube", True)
-
-
-
-# <iframe src="https://player.vimeo.com/video/28401974" 
-#         width="500" 
-#         height="281" 
-#         frameborder="0" 
-#         webkitallowfullscreen 
-#         mozallowfullscreen 
-#        allowfullscreen>
-# </iframe> 

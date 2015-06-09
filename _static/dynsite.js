@@ -6,8 +6,8 @@ function dynsite_send_data(s, v, o) {
     var data = {}
     /* If loading locally, skip the logging */
     if (location.protocol == 'file:') {
-	// console.log('SEND:' + document.location.pathname + ',' + 
-        //             DOCUMENTATION_OPTIONS.CONTEXT + ',' + v + ',' + JSON.stringify(o));
+	console.log('SEND:' + document.location.pathname + ',' + 
+                    DOCUMENTATION_OPTIONS.CONTEXT + ',' + v + ',' + JSON.stringify(o));
 	return;
     }
 

@@ -15,7 +15,8 @@ browser when watching it. Here is the result:
 
 .. embedded-video:: SeoW3YNo3Zs
 
-You can also select just a segment of the video to be presented by optionally
+If the video is in Youtube (Vimeo does not offer this functionality), you can
+also select just a segment of the video to be presented by optionally
 specifying a start and end time (in seconds).  The player will start playing at
 the given time, and will stop at the end time.  Here is an example of the
 markup you would use to specify only the start of the video segment (at 120
@@ -31,7 +32,7 @@ The result of this last directive is:
 
 .. embedded-video:: SeoW3YNo3Zs 120 140
 
-The directive allows four parameters:
+The directive allows four options:
 
 - `element_id`: The name to assign the HTML element containing the video (`div`
   or `iframe`).
