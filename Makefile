@@ -6,7 +6,6 @@ SPHINXOPTS    =
 SPHINXBUILD   = sphinx-build
 PAPER         =
 BUILDDIR      = _build
-BUILDDIRIGUIDE= $(BUILDDIR)_iguide
 REA_SCRIPTS   = Scripts
 
 # User-friendly check for sphinx-build
@@ -18,16 +17,15 @@ endif
 PAPEROPT_a4     = -D latex_paper_size=a4
 PAPEROPT_letter = -D latex_paper_size=letter
 ALLSPHINXOPTS   = -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
-ALLSPHINXOPTSIGUIDE = -d $(BUILDDIRIGUIDE)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 # the i18n builder cannot share the environment and doctrees with the others
 I18NSPHINXOPTS  = $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 
-.PHONY: help clean html html_iguide dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
+.PHONY: help clean html iguide dirhtml singlehtml pickle json htmlhelp qthelp devhelp epub latex latexpdf text man changes linkcheck doctest gettext
 
 help:
 	@echo "Please use \`make <target>' where <target> is one of"
 	@echo "  html       to make standalone HTML files"
-	@echo "  html_iguide to make standalone HTML Instructor guide files"
+	@echo "  iguide to make standalone HTML Instructor guide files"
 	@echo "  dirhtml    to make HTML files named index.html in directories"
 	@echo "  singlehtml to make a single large HTML file"
 	@echo "  pickle     to make pickle files"
@@ -53,18 +51,15 @@ help:
 clean:
 	-rm -rf $(BUILDDIR)/*
 
-clean_iguide:
-	-rm -rf $(BUILDDIRIGUIDE)/*
-
 html:
 	$(SPHINXBUILD) -b html $(ALLSPHINXOPTS) $(BUILDDIR)/html
 	@echo
 	@echo "Build finished. The HTML pages are in $(BUILDDIR)/html."
 
-html_iguide:
-	$(SPHINXBUILD) -b html -t iguide $(ALLSPHINXOPTSIGUIDE) $(BUILDDIRIGUIDE)/html
+iguide:
+	$(SPHINXBUILD) -b html -t iguide $(ALLSPHINXOPTS) $(BUILDDIR)/iguide
 	@echo
-	@echo "Build finished. The HTML pages are in $(BUILDDIRIGUIDE)/html."
+	@echo "Build finished. The HTML pages are in $(BUILDDIR)/iguide."
 
 dirhtml:
 	$(SPHINXBUILD) -b dirhtml $(ALLSPHINXOPTS) $(BUILDDIR)/dirhtml
