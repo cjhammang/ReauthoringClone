@@ -63,12 +63,11 @@ def visit_embedded_video_node(self, node):
         start = node["args"][1]
         end = node["args"][2]
 
-
     # Get the params
     elem_id = node['element_id']
-    height = node['height']
-    width = node['width']
-    video_format = node['format'].lower() # Take the value in all lowercase
+    height  = node['height']
+    width   = node['width']
+    vformat = node['format'].lower() # Take the value in all lowercase
 
     # Deploy the div with the script inside
     self.body.append('<div id="%s" class="embedded-video">' % elem_id)
@@ -80,7 +79,7 @@ def visit_embedded_video_node(self, node):
         self.body.append('</div>')
 
     # Emit code for the different video formats
-    if video_format == 'youtube':
+    if vformat == 'youtube':
         #
         # YOUTUBE
         #
@@ -90,7 +89,7 @@ def visit_embedded_video_node(self, node):
                                                  video_id,
                                                  start,
                                                  end))
-    elif video_format == 'vimeo':
+    elif vformat == 'vimeo':
         #
         # VIMEO
         #
@@ -135,7 +134,7 @@ class Embedded_video(Directive):
         width = common.get_parameter_value(config, self.options, 'width',
                                            'embedded_video_width')
 
-        video_format = common.get_parameter_value(config, self.options, 
+        vformat = common.get_parameter_value(config, self.options, 
                                                   'format',
                                                   'embedded_video_format')
 
@@ -146,7 +145,7 @@ class Embedded_video(Directive):
                                element_id = element_id,
                                height = height,
                                width = width,
-                               format = video_format)]
+                               format = vformat)]
 
 def setup(app):
     app.add_node(embedded_video,
