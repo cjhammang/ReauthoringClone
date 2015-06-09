@@ -34,7 +34,21 @@ from Sphinx_ext import html_form, common
 
 class embedded_video(nodes.General, nodes.Element): pass
 
+#
+# TODO: Include event capturing for VIMEO
+#       Check https://developer.vimeo.com/player/js-api
+#
+#
 def visit_embedded_video_node(self, node):
+    youtube_template = """<script type="text/javascript">
+        array_video_embed['{0}'] = {{height: '{1}', width: '{2}', videoId: '{3}',
+        playerVars: {{rel: 0, start: '{4}', end: '{5}'}},
+        events: {{'onStateChange': onPlayerStateChange}}}};</script>"""
+
+    vimeo_template = """<iframe src="https://player.vimeo.com/video/{0}" 
+      width="{1}" height="{2}" id="{3} frameborder="0" webkitallowfullscreen 
+        mozallowfullscreen allowfullscreen></iframe>"""
+
     # Initialize variables for start and end of segment
     start="0"
     end="10000000" #Hopefully higher than any real value
@@ -54,6 +68,7 @@ def visit_embedded_video_node(self, node):
     elem_id = node['element_id']
     height = node['height']
     width = node['width']
+    video_format = node['format'].lower() # Take the value in all lowercase
 
     # Deploy the div with the script inside
     self.body.append('<div id="%s" class="embedded-video">' % elem_id)
@@ -64,14 +79,26 @@ def visit_embedded_video_node(self, node):
         self.body.append('<strong>Video ID: %s</strong>' % elem_id)
         self.body.append('</div>')
 
-    self.body.append('<script type="text/javascript">')
-    self.body.append("""array_video_embed['%s'] = {height: '%s',
-                                        width: '%s',
-                                        videoId: '%s',
-                                        playerVars: {rel: 0, start: '%s', end: '%s'},
-                                        events: {'onStateChange': onPlayerStateChange}};""" % \
-                         (elem_id, height, width, video_id, start, end))
-    self.body.append("</script>")
+    # Emit code for the different video formats
+    if video_format == 'youtube':
+        #
+        # YOUTUBE
+        #
+        self.body.append(youtube_template.format(elem_id,
+                                                 height,
+                                                 width,
+                                                 video_id,
+                                                 start,
+                                                 end))
+    elif video_format == 'vimeo':
+        #
+        # VIMEO
+        #
+        self.body.append(vimeo_template.format(video_id, width, height, elem_id))
+    else:
+        # Unknown video format, raise exception.
+        raise Exception('Incorrect "format" value in embedded-video directive')
+
     self.body.append("</div>")
 
 
@@ -80,12 +107,13 @@ def depart_embedded_video_node(self, node):
 
 class Embedded_video(Directive):
     """
-    Directive to embed a youtube video, deploy the API and track events on the video.
+    Directive to embed a youtube video, deploy the API and track events on the
+    video.
 
     .. embedded-video:: videoId
+       :format: [youtube, vimeo]
        :height: value
        :width: value
-
 
     """
 
@@ -95,7 +123,8 @@ class Embedded_video(Directive):
     final_argument_whitespace = False
     option_spec = {
         "height": directives.nonnegative_int,
-        "width": directives.nonnegative_int
+        "width": directives.nonnegative_int,
+        "format": directives.unchanged
         }
 
     def run(self):
@@ -106,13 +135,18 @@ class Embedded_video(Directive):
         width = common.get_parameter_value(config, self.options, 'width',
                                            'embedded_video_width')
 
+        video_format = common.get_parameter_value(config, self.options, 
+                                                  'format',
+                                                  'embedded_video_format')
+
         element_id = 'embedded-video-%s' % \
             self.state.document.settings.env.new_serialno('embedded-video')
 
         return [embedded_video(args = self.arguments,
                                element_id = element_id,
                                height = height,
-                               width = width)]
+                               width = width,
+                               format = video_format)]
 
 def setup(app):
     app.add_node(embedded_video,
@@ -121,5 +155,19 @@ def setup(app):
 
     app.add_directive("embedded-video", Embedded_video)
 
+    # Declare the three parameters for the directive. Any changes in any value
+    # should fire the rebuild (thus the True as third parameter.
     app.add_config_value('embedded_video_height', 390, True)
     app.add_config_value('embedded_video_width', "100%", True)
+    app.add_config_value('embedded_video_format', "youtube", True)
+
+
+
+# <iframe src="https://player.vimeo.com/video/28401974" 
+#         width="500" 
+#         height="281" 
+#         frameborder="0" 
+#         webkitallowfullscreen 
+#         mozallowfullscreen 
+#        allowfullscreen>
+# </iframe> 
