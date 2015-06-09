@@ -192,7 +192,7 @@ version_tag:
 	    python $(REA_SCRIPTS)/version_tag.py; \
 	fi
 
-rsync:
+rsync: html
 	@if [ -f Reauthoring/Scripts/rsync.py ]; then \
 	    python Reauthoring/Scripts/rsync.py; \
 	elif [ -f Scripts/rsync.py ]; then \
