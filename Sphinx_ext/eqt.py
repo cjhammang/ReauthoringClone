@@ -50,7 +50,7 @@ def visit_eqt_answer_type_node(self, node):
                          (input_type, node["content"]))
 
         # If in instructor mode, write the solution of the question
-        if self.builder.config.tags.has('iguide'):
+        if self.builder.config.iguide:
             if node["content"] == 'C':
                 self.body.append('<strong>[Correct]</strong>')
             else:
@@ -65,7 +65,7 @@ def visit_eqt_answer_type_node(self, node):
         self.body.append('value="%s"/>' % node["content"])
 
         # If in instructor mode, write the solution
-        if self.builder.config.tags.has('iguide'):
+        if self.builder.config.iguide:
             self.body.append(' <strong>[%s]</strong>' % node["content"])
 
         self.body.append('</div>')
@@ -128,7 +128,7 @@ def depart_eqt_node(self, node):
     self.body.append('</div>')
 
     # If it is the instructor guide, print the id
-    if self.builder.config.tags.has('iguide'):
+    if self.builder.config.iguide:
         self.body.append('<div class="reauthoring_embedded_quiz_eqtid">')
         self.body.append('<strong>Question ID: %s </strong>' % node["args"][0])
         self.body.append('</div>')

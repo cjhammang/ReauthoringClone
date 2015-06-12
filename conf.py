@@ -249,9 +249,11 @@ html_context = {
     'data_capture_context_name': global_data_context_field_name
 }
 
-# If we are processing the iguide, then change the "
+# If we are processing the iguide, then propagate the value to config and HTML context
+iguide = False
 if tags.has('iguide'):
     html_context['iguide'] = 'iguide'
+    iguide = True
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -385,4 +387,4 @@ publish_extra_args = []
 #
 ################################################################################
 def setup(app):
-    app.add_config_value('tags', tags, True)
+    app.add_config_value('iguide', iguide, True)
