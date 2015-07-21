@@ -66,7 +66,9 @@ $(document).ready(function() {
 		    return;
 		}
 		/* Accumulate the rest of input fields */
-		data[this.name] = this.value;
+		if (((this.type != "radio") && (this.type != "checkbox")) || this.checked) {
+		    data[this.name] = this.value;
+		}
 	    });
 	    /* Store also the URL */
 	    data['url'] = document.URL;
