@@ -39,9 +39,6 @@ from Sphinx_ext import common
 class html_form(nodes.General, nodes.Element): pass
 
 def visit_html_form_node(self, node):
-    # Get the arguments
-    form_id = node["args"][0]
-    
     self.body.append('<div class="reauthoring_form">')
     self.body.append('<form>')
 
@@ -63,6 +60,11 @@ def depart_html_form_node(self, node):
                          % os.path.join(node["p_to_static"], 
                                         'Correct_20x20.png'))
     self.body.append("</div>")
+    # If it is the instructor guide, print the id
+    if self.builder.config.iguide:
+        self.body.append('<div class="reauthoring_html_form_id">')
+        self.body.append('<strong>Form ID: %s </strong>' % form_id)
+        self.body.append('</div>')
     return
 
 class Html_form(Directive):
@@ -133,12 +135,6 @@ def visit_html_input_node(self, node):
     if value != '':
         self.body.append(' value="%s"' % value)
     self.body.append('/>')
-
-    # If it is the instructor guide, print the id
-    if self.builder.config.iguide:
-        self.body.append('<div class="reauthoring_html_input_id">')
-        self.body.append('<strong>Name: %s </strong>' % name)
-        self.body.append('</div>')
 
 def depart_html_input_node(self, node):
     pass
@@ -214,12 +210,6 @@ def visit_html_textarea_node(self, node):
                          (textarea_id, rows, columns, other_params))
     self.body.append(text)
     self.body.append('</textarea>')
-
-    # If it is the instructor guide, print the id
-    if self.builder.config.iguide:
-        self.body.append('<div class="reauthoring_html_textarea_id">')
-        self.body.append('<strong>Name: %s </strong>' % textarea_id)
-        self.body.append('</div>')
 
 def depart_html_textarea_node(self, node):
     pass
