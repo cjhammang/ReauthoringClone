@@ -134,6 +134,12 @@ def visit_html_input_node(self, node):
         self.body.append(' value="%s"' % value)
     self.body.append('/>')
 
+    # If it is the instructor guide, print the id
+    if self.builder.config.iguide:
+        self.body.append('<div class="reauthoring_html_input_id">')
+        self.body.append('<strong>Name: %s </strong>' % name)
+        self.body.append('</div>')
+
 def depart_html_input_node(self, node):
     pass
 
@@ -208,6 +214,12 @@ def visit_html_textarea_node(self, node):
                          (textarea_id, rows, columns, other_params))
     self.body.append(text)
     self.body.append('</textarea>')
+
+    # If it is the instructor guide, print the id
+    if self.builder.config.iguide:
+        self.body.append('<div class="reauthoring_html_textarea_id">')
+        self.body.append('<strong>Name: %s </strong>' % textarea_id)
+        self.body.append('</div>')
 
 def depart_html_textarea_node(self, node):
     pass
