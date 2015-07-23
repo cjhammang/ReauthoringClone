@@ -120,10 +120,12 @@ p.admonition-title {
 /* Images */
 .float-left {
    float: left;
+   padding-right: 1em;
  }
 
 .float-right {
    float: right;
+   padding-left: 1em;
  }
 
 /* Image captions */
