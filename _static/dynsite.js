@@ -114,7 +114,8 @@ $(document).ready(function (){
 	    if (track && DOCUMENTATION_OPTIONS.DATA_CAPTURE_URL) {
 		data = {};
 		data["page"] = document.URL.replace(/#.*$/, "");
-		data[section.attr("id")] = event_name;
+		data["section"] = section.attr("id");
+		data["operation"] = event_name;
 		dynsite_send_data(given_uid, 'activity-collapse-expand', data);
 	    }
 	}
