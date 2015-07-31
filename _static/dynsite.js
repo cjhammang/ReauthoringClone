@@ -248,18 +248,14 @@ function again() {
     up_up_div.find("form input[type='text']").val('');
 
     // And the solutions
-    up_up_div.find(".correct_icon").css('opacity', '0');
-    up_up_div.find(".incorrect_icon").css('opacity', '0');
+    up_up_div.find(".result_icon").css('display', 'none');
+    up_up_div.find(".result_icon").css('display', 'none');
 }
 
 function solution_mcq(div_el) {
     /* Ordered list elements with the answer */
     div_el.find("form > ol.eqt-answer-list li").each(function() {
-	if ($(this).find("input")[0].value == 'C') {
-	    $(this).find("img.correct_icon").css('opacity', '1');
-	} else {
-	    $(this).find("img.incorrect_icon").css('opacity', '1');
-        }
+	$(this).find("img.result_icon").css('display', '');
     });
     return;
 }
@@ -306,15 +302,15 @@ $(document).ready(function () {
     this_el.find('ul').css('listStyleType', 'upper-alpha');
 
     /* MCQ */
-    $('.reauthoring_embedded_quiz .eqt-answer-list .correct_icon').css('marginLeft',
-    			'-43px').css('marginRight', '43px');
-    $('.reauthoring_embedded_quiz .eqt-answer-list .incorrect_icon').css('marginLeft',
-    				  '-66px').css('marginRight', '23px');
-    /* MCQ (Multiple choice) */
-    $('.reauthoring_embedded_quiz-mc .eqt-answer-list .correct_icon').css('marginLeft',
-    			'-43px').css('marginRight', '43px');
-    $('.reauthoring_embedded_quiz-mc .eqt-answer-list .incorrect_icon').css('marginLeft',
-    				  '-66px').css('marginRight', '23px');
+//     $('.reauthoring_embedded_quiz .eqt-answer-list .correct_icon').css('marginLeft',
+//     			'-43px').css('marginRight', '43px');
+//     $('.reauthoring_embedded_quiz .eqt-answer-list .incorrect_icon').css('marginLeft',
+//     				  '-66px').css('marginRight', '23px');
+//     /* MCQ (Multiple choice) */
+//     $('.reauthoring_embedded_quiz-mc .eqt-answer-list .correct_icon').css('marginLeft',
+//     			'-43px').css('marginRight', '43px');
+//     $('.reauthoring_embedded_quiz-mc .eqt-answer-list .incorrect_icon').css('marginLeft',
+//     				  '-66px').css('marginRight', '23px');
 });
 /* Page now records an event upon loading */
 $(document).ready(function() {

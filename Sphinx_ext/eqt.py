@@ -46,8 +46,23 @@ def visit_eqt_answer_type_node(self, node):
         else:
             input_type = "checkbox"
 
+        is_correct = node["content"] == 'C'
+
         self.body.append('<input type="%s" name="question" value="%s" />' % \
                          (input_type, node["content"]))
+
+        if is_correct:
+            self.body.append('  <img class="result_icon" ')
+            self.body.append('style="display: none;"')
+            self.body.append('       src="%s"></img>' 
+                             % posixpath.join(node["p_to_static"],
+                                              'Correct_20x20.png'))
+        else:
+            self.body.append('  <img class="result_icon" ')
+            self.body.append('style="display: none;"')
+            self.body.append('       src="%s"></img>' \
+                             % posixpath.join(node["p_to_static"], 
+                                              'Incorrect_20x20.png'))
 
         # If in instructor mode, write the solution of the question
         if self.builder.config.iguide:
