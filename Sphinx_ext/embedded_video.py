@@ -71,7 +71,7 @@ def visit_embedded_video_node(self, node):
     # If it is the instructor guide, print the id
     if self.builder.config.iguide:
         self.body.append('<div class="embedded-video-id">')
-        self.body.append('<strong>Video ID: %s</strong>' % elem_id)
+        self.body.append('<strong>Video ID: %s</strong>' % video_id)
         self.body.append('</div>')
 
     # Deploy the div with the script inside
