@@ -19,6 +19,8 @@ function onPlayerStateChange(event) {
     var match = url.match(/[?&]v=([^&]+)/);
     // ["?v=gzDS-Kfd5XQ", "gzDS-Kfd5XQ"]
     var video_id = match[1];
+    var video_time = event.target.getCurrentTime();
+    data['TIME'] = video_time;
     switch (event.data){
     case YT.PlayerState.PLAYING:
 	data['PLAY'] = video_id;
