@@ -20,19 +20,20 @@ function onPlayerStateChange(event) {
     // ["?v=gzDS-Kfd5XQ", "gzDS-Kfd5XQ"]
     var video_id = match[1];
     var video_time = event.target.getCurrentTime();
-    data['TIME'] = video_time;
+    data['time'] = video_time;
+    data['id'] = video_id;
     switch (event.data){
     case YT.PlayerState.PLAYING:
-	data['PLAY'] = video_id;
+	data['event'] = 'PLAY';
         break;
     case YT.PlayerState.ENDED:
-	data['END'] = video_id;
+	data['event'] = 'END';
         break;
     case YT.PlayerState.PAUSED:
-	data['PAUSED'] = video_id;
+	data['event'] = 'PAUSED';
         break;
     case -1:
-	data['LOADED'] = video_id;
+	data['event'] = 'LOADED';
 	break;
     default:
 	return;
