@@ -69,7 +69,7 @@ def visit_embedded_video_node(self, node):
     vformat = node['format'].lower() # Take the value in all lowercase
 
     # If it is the instructor guide, print the id
-    if self.builder.config.iguide:
+    if hasattr(self.builder.config, 'iguide') and self.builder.config.iguide:
         self.body.append('<div class="embedded-video-id">')
         self.body.append('<strong>Video ID: %s</strong>' % video_id)
         self.body.append('</div>')

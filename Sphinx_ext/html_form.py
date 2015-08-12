@@ -61,7 +61,7 @@ def depart_html_form_node(self, node):
                                         'Correct_20x20.png'))
     self.body.append("</div>")
     # If it is the instructor guide, print the id
-    if self.builder.config.iguide:
+    if hasattr(self.builder.config, 'iguide') and self.builder.config.iguide:
         self.body.append('<div class="reauthoring_html_form_id">')
         self.body.append('<strong>Form ID: %s </strong>' % form_id)
         self.body.append('</div>')
