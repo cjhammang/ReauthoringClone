@@ -145,7 +145,7 @@ $(document).ready(function (){
 /***** Embedded MCQ *****/
 function grade_mcq(div_el) {
     /* Get all the answer elements */
-    answer_input = div_el.find("form > ol.eqt-answer-list > li > input:checked");
+    answer_input = div_el.find("form > ol.eqt-answer-list > li input:checked");
     // If none is clicked, return -1
     if (answer_input.length == 0) {
 	return -1;
