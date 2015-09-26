@@ -1,5 +1,5 @@
 /*  Author: Abelardo Pardo (<abelardo.pardo@sydney.edu.au>) */
-/* Version: 150112 */
+/* Version: 150926 */
 /* Variable to allow for UID set by other means (additional code needed) */
 var given_uid = '';
 function dynsite_send_data(s, v, o) {
