@@ -223,7 +223,8 @@ function grade() {
 
     // Send the "embedded-question-grade" event
     data = {};
-    data[div_el.attr('id')] = answer;
+    data['question_id'] = div_el.attr('id');
+    data['answer'] = answer;
     dynsite_send_data(given_uid, 'embedded-question', data);
 
     /* Change the visibility of the buttons */
@@ -281,7 +282,8 @@ function solution() {
     
     // Send the "embedded-question-again" event
     data = {};
-    data[div_el.attr('id')] = "-1";
+    data['question_id'] = div_el.attr('id');
+    data['answer'] = "-1";
     dynsite_send_data(given_uid, 'embedded-question', data);
 }
 
@@ -300,17 +302,6 @@ $(document).ready(function () {
 		      'none no-repeat 0 0').css('marginLeft', '2em');
     this_el.find('ol').css('listStyleType', 'upper-alpha');
     this_el.find('ul').css('listStyleType', 'upper-alpha');
-
-    /* MCQ */
-//     $('.reauthoring_embedded_quiz .eqt-answer-list .correct_icon').css('marginLeft',
-//     			'-43px').css('marginRight', '43px');
-//     $('.reauthoring_embedded_quiz .eqt-answer-list .incorrect_icon').css('marginLeft',
-//     				  '-66px').css('marginRight', '23px');
-//     /* MCQ (Multiple choice) */
-//     $('.reauthoring_embedded_quiz-mc .eqt-answer-list .correct_icon').css('marginLeft',
-//     			'-43px').css('marginRight', '43px');
-//     $('.reauthoring_embedded_quiz-mc .eqt-answer-list .incorrect_icon').css('marginLeft',
-//     				  '-66px').css('marginRight', '23px');
 });
 /* Page now records an event upon loading */
 $(document).ready(function() {
