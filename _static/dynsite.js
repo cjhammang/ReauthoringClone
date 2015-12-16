@@ -1,5 +1,5 @@
 /*  Author: Abelardo Pardo (<abelardo.pardo@sydney.edu.au>) */
-/* Version: 150926 */
+/* Version: 151216 */
 /* Variable to allow for UID set by other means (additional code needed) */
 var given_uid = '';
 function dynsite_send_data(s, v, o) {
@@ -33,8 +33,8 @@ $(document).ready(function() {
 	$(this).click(function(e){
 	    e.preventDefault();
 	    data = {};
-	    data[form_el.find('input[name = "duration-id"]').val()] =
-		 form_el.find('select[name = "duration-value"]').val();
+	    data['activity-id'] = form_el.find('input[name = "duration-id"]').val();
+	    data['value'] = form_el.find('select[name = "duration-value"]').val();
 	    dynsite_send_data(given_uid, "activity-duration", data);
 	    form_el.hide()
 	    ok_icon.show()
