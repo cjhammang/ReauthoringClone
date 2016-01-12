@@ -383,7 +383,7 @@ publish_extra_args = []
 
 ################################################################################
 #
-# Symbols visible to the building phase
+# Additional configuration in the setup
 #
 ################################################################################
 def setup(app):
