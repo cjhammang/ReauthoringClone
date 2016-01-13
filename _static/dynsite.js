@@ -1,5 +1,5 @@
 /*  Author: Abelardo Pardo (<abelardo.pardo@sydney.edu.au>) */
-/* Version: 151216 */
+/* Version: 160113 */
 /* Variable to allow for UID set by other means (additional code needed) */
 var given_uid = '';
 function dynsite_send_data(s, v, o) {
@@ -302,6 +302,23 @@ $(document).ready(function () {
 		      'none no-repeat 0 0').css('marginLeft', '2em');
     this_el.find('ol').css('listStyleType', 'upper-alpha');
     this_el.find('ul').css('listStyleType', 'upper-alpha');
+});
+/* XY Click widget */
+$(document).ready(function() {
+  $('div.xy_click img').click(function(e) {
+    var offset = $(this).offset();
+    var xoff = - $(this).width()/2;
+    var yoff = $(this).height()/2;
+    var ok_icon = $(this).parent().children('img.xy_ok_icon');
+    data = {};
+    data['id'] = $(this).parent().parent().parent().attr('id');
+    data['x'] = Math.round(100 * (e.pageX - offset.left + xoff)/-xoff);
+    data['y'] = Math.round(100 * (yoff - (e.pageY - offset.top))/yoff);
+    dynsite_send_data(given_uid, "xy-click", data);
+    ok_icon.css('top', e.pageY - offset.top - 20);
+    ok_icon.css('left', e.pageX - offset.left - 6);
+    ok_icon.show();
+  });
 });
 /* Page now records an event upon loading */
 $(document).ready(function() {
