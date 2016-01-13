@@ -47,7 +47,7 @@ def visit_xy_click_node(self, node):
     left_label = node["left_label"]
     right_label = node["right_label"]
     xy_size = node["size"]
-    img_path = os.path.join(node["p_to_static"], 'xy_grid.png')
+    img_path = os.path.join(node["p_to_static"], 'xy_grid_5x5.png')
     ok_path = os.path.join(node["p_to_static"], 'Correct_20x20.png')
     self.body.append('<div class="xy_click" id="{0}">\n'.format(element_id))
     self.body.append('  <div class="xy_click_inner" style="display: ' +
