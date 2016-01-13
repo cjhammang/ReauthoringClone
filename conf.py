@@ -93,7 +93,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Creating Learning Resources with Sphinx-Doc'
-copyright = u'2015, Abelardo Pardo, The University of Sydney'
+copyright = u'2016, Abelardo Pardo, The University of Sydney'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
