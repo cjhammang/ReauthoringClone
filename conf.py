@@ -388,3 +388,5 @@ publish_extra_args = []
 ################################################################################
 def setup(app):
     app.add_config_value('iguide', iguide, True)
+    # app.add_javascript("custom.js")
+    # app.add_stylesheet("custom.css")
