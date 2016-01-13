@@ -43,7 +43,7 @@ seeing. Go ahead and *Feel the source, Luke*.
    /Videos/index
    /Sequences/index
    /Activity/index
-   /2D_question/index
+   /2D_rank/index
    /Accordion_docs/index
    /Customize/index
 
