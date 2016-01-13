@@ -1,8 +1,8 @@
 .. _2D-question:
 
-***********
-2D Question
-***********
+************
+2D Questions
+************
 
 This extension allows the inclusion of a ranking widget that uses a
 two-dimensional plane to rank to questions simultaneously. For example, imagine
