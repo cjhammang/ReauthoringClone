@@ -23,12 +23,13 @@
 
 from __future__ import division
 
-import os, re, sys
+import os
+import sys
 from docutils import nodes
 from docutils.parsers.rst import directives
 from sphinx.util.compat import Directive
 
-from Sphinx_ext import html_form, common
+from Sphinx_ext import common
 
 class question(nodes.General, nodes.Element): pass
 
