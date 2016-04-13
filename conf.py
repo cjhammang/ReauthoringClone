@@ -65,6 +65,7 @@ extensions = [
     'Sphinx_ext.instructor_guide',
     'Sphinx_ext.embedded_video',
     'Sphinx_ext.xy_click',
+    'Sphinx_ext.questions',
     'Sphinx_ext.iframe'
 ]
 
