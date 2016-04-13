@@ -73,6 +73,7 @@ def visit_activity_duration_node(self, node):
     # Value of the duration
     self.body.append('<select name="duration-value">')
     value = int(duration_value / 2)
+    self.body.append('<option selected disabled>Select a value</option>')
     self.body.append('<option value="LT-%s/%s">Less than %s</option>' \
                          % (value, duration_value, value))
     self.body.append('<option value="%s/%s">%s</option>' % (value, 
@@ -83,7 +84,7 @@ def visit_activity_duration_node(self, node):
                                                             duration_value,
                                                             value))
     
-    self.body.append('<option selected="selected" value="%s/%s">%s</option>' % \
+    self.body.append('<option value="%s/%s">%s</option>' % \
                          (duration_value, duration_value, duration_value))
     value = int(duration_value * 5/4)
     self.body.append('<option value="%s/%s">%s</option>' % (value, 
