@@ -52,14 +52,12 @@ def get_enclosing_activity_id(node):
     until a node is detected with the "activity" and "section" classes. When
     found, it returns the IDs attribute. None if not found.
     """
-    start = node;
-    while ((not "activity" in start.attributes['classes'] or \
-                start.tagname != "section") and \
-               start.parent != None):
+    start = node
+    while ((not "activity" in start.attributes['classes'] or
+                start.tagname != "section") and start.parent != None):
         start = start.parent
 
-    if "activity" in start.attributes['classes'] and \
-            start.tagname == "section":
+    if "activity" in start.attributes['classes'] and start.tagname == "section":
         return start.attributes['ids'][0]
 
     return None
