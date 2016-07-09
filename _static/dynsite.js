@@ -75,6 +75,12 @@ $(document).ready(function() {
 	    data['url'] = document.URL;
 	    /* Send! */
 	    dynsite_send_data(given_uid, event_name, data);
+        /* If button has class reauthoring_reload, fire the reload */
+        console.log($(this).hasClass('reauthoring_reload'));
+        if ($(this).hasClass('reauthoring_reload')) {
+            document.location.reload(true);
+            return false;
+        }
 	    form_el.hide()
 	    ok_icon.show()
 	    return false;  //stop the actual form post !important!
@@ -312,7 +318,7 @@ $(document).ready(function() {
     var yoff = $(this).height()/2;
     var ok_icon = $(this).parent().children('img.xy_ok_icon');
     data = {};
-    data['id'] = $(this).parent().parent().parent().attr('id');
+    data['id'] = $(this).parent().parent().parent().parent().attr('id');
     data['x'] = Math.round(100 * (e.pageX - offset.left + xoff)/-xoff);
     data['y'] = Math.round(100 * (yoff - (e.pageY - offset.top))/yoff);
     dynsite_send_data(given_uid, "xy-click", data);
