@@ -319,6 +319,7 @@ $(document).ready(function() {
     var ok_icon = $(this).parent().children('img.xy_ok_icon');
     data = {};
     data['id'] = $(this).parent().parent().parent().parent().attr('id');
+    data['url'] = document.URL;
     data['x'] = Math.round(100 * (e.pageX - offset.left + xoff)/-xoff);
     data['y'] = Math.round(100 * (yoff - (e.pageY - offset.top))/yoff);
     dynsite_send_data(given_uid, "xy-click", data);
