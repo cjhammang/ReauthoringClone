@@ -42,6 +42,7 @@ def visit_xy_click_node(self, node):
     element_id = node["args"][0]
 
     # Get the parameters
+    title = node["title"]
     top_label = node["top_label"]
     bottom_label = node["bottom_label"]
     left_label = node["left_label"]
@@ -50,6 +51,11 @@ def visit_xy_click_node(self, node):
     img_path = os.path.join(node["p_to_static"], 'xy_grid_5x5.png')
     ok_path = os.path.join(node["p_to_static"], 'Correct_20x20.png')
     self.body.append('<div class="xy_click" id="{0}">\n'.format(element_id))
+
+    # Include title if given
+    if title is not None:
+        self.body.append('<div class="xy_click_title">' + title + '</div>')
+
     self.body.append('  <div class="xy_click_inner" style="display: ' +
                      'inline-block;">\n')
     self.body.append('  <div class="xy_top_label" style="text-align:center">' +
@@ -89,6 +95,7 @@ class XyClickDirective(Directive):
     is:
 
     .. xy-click:: xy-click-id
+       :title: Title to put above the grid
        :top: North Label
        :bottom: South Label
        :left: East Label
@@ -101,6 +108,7 @@ class XyClickDirective(Directive):
     optional_arguments = 0
     final_argument_whitespace = False
     option_spec = {
+        "title": directives.unchanged,
         "top": directives.unchanged,
         "bottom": directives.unchanged,
         "left": directives.unchanged,
@@ -112,6 +120,8 @@ class XyClickDirective(Directive):
         config = self.state.document.settings.env.config
 
         # Get the labels
+        title = common.get_parameter_value(config, self.options, 'title',
+                                           "xy_click_title", False)
         top_label = common.get_parameter_value(config, self.options, 'top',
                                                "xy_click_top_label", False)
         bottom_label = common.get_parameter_value(config, self.options,
@@ -130,6 +140,7 @@ class XyClickDirective(Directive):
         p_to_static = common.get_relative_path_to_static(self.state.document)
 
         return [XyClickNode(args = self.arguments,
+                            title = title,
                             top_label = top_label,
                             bottom_label = bottom_label,
                             left_label = left_label,
@@ -152,8 +163,10 @@ def setup(app):
     #
     # CONFIGURATION
     #
-    
-    # Phrase to precede the value
+
+    # Title to appear above the grid
+    app.add_config_value('xy_click_title', None, True)
+    # Phrases to precede the value
     app.add_config_value('xy_click_top_label',
                          'TOP LABEL',
                          True)
@@ -166,6 +179,7 @@ def setup(app):
     app.add_config_value('xy_click_right_label',
                          'RIGHT LABEL',
                          True)
+    # Grid size
     app.add_config_value('xy_click_grid_size',
                          '300px',
                          True)
