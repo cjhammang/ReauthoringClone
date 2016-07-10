@@ -269,8 +269,12 @@ div.reauthoring_duration_select {
 *****************************************************/
 div.xy_click {
   text-align: center;
-  border: 1px, solid, black;
+  border: 1px solid black;
   padding: 3px;
+}
+
+div.xy_click > div.xy_click_title {
+  padding: 0.5em;
 }
 
 /*****************************************************
