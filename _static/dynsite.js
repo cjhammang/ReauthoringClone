@@ -76,7 +76,6 @@ $(document).ready(function() {
 	    /* Send! */
 	    dynsite_send_data(given_uid, event_name, data);
         /* If button has class reauthoring_reload, fire the reload */
-        console.log($(this).hasClass('reauthoring_reload'));
         if ($(this).hasClass('reauthoring_reload')) {
             document.location.reload(true);
             return false;
