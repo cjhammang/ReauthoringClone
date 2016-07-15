@@ -109,6 +109,10 @@ div.admonition-important {
   margin: 0px;
  }
 
+th.head {
+    text-align: center;
+}
+
 p.admonition-title:after {
     content: "";
  }
