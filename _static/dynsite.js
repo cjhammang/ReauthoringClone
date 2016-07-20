@@ -59,7 +59,7 @@ $(document).ready(function() {
 	    form_el.find('*').filter(':input').each(function(){
 		if (this.name == "") {
 		    return;
-        }
+                }
 		/* And this to catch the event name from within the form */
 		if (this.name == "event-name") {
 		    event_name = this.value;
@@ -67,8 +67,8 @@ $(document).ready(function() {
 		}
 		/* Accumulate the rest of input fields */
 		if (((this.type != "radio") && (this.type != "checkbox")) || this.checked) {
-	        data['id'] = this.name;
-		  	data['answer'] = this.value;
+	            data['id'] = this.name;
+		    data['answer'] = this.value;
 		}
 	    });
 	    /* Store also the URL */
