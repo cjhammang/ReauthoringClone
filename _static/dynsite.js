@@ -1,5 +1,5 @@
 /*  Author: Abelardo Pardo (<abelardo.pardo@sydney.edu.au>) */
-/* Version: 160114 */
+/* Version: 160721 */
 /* Variable to allow for UID set by other means (additional code needed) */
 var given_uid = '';
 function dynsite_send_data(s, v, o) {
@@ -67,8 +67,9 @@ $(document).ready(function() {
 		}
 		/* Accumulate the rest of input fields */
 		if (((this.type != "radio") && (this.type != "checkbox")) || this.checked) {
-	            data['id'] = this.name;
-		    data['answer'] = this.value;
+	            /* data['id'] = this.name;
+		    data['answer'] = this.value; */
+                    data[this.name] = this.value;
 		}
 	    });
 	    /* Store also the URL */
