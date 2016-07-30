@@ -48,32 +48,40 @@ $(document).ready(function() {
     function init() {
 	/* This is button. Parent is the form element */
 	var form_el = $(this).closest('form');
-        var ok_icon = form_el.parent().children("img");
+    var ok_icon = form_el.parent().children("img");
+    var form_id = form_el.attr("id");
 
+    if (form_id == null) {
+        form_id = 'undefined'
+    }
 	$(this).click(function(e){
 	    e.preventDefault();
 	    data = {};
 	    /* This is the default event name */
 	    event_name = "form-submit";
+
+        /* Store some initial fields*/
+        data['url'] = document.URL;
+        data['form_id'] = form_id;
+
 	    /* Loop over the input elements in the form */
 	    form_el.find('*').filter(':input').each(function(){
-		if (this.name == "") {
-		    return;
-                }
-		/* And this to catch the event name from within the form */
-		if (this.name == "event-name") {
-		    event_name = this.value;
-		    return;
-		}
-		/* Accumulate the rest of input fields */
-		if (((this.type != "radio") && (this.type != "checkbox")) || this.checked) {
-	            /* data['id'] = this.name;
-		    data['answer'] = this.value; */
-                    data[this.name] = this.value;
-		}
+            if (this.name == "") {
+                return;
+            }
+            /* And this to catch the event name from within the form */
+            if (this.name == "event-name") {
+                event_name = this.value;
+                return;
+            }
+
+            /* Accumulate the rest of input fields */
+            if (((this.type != "radio") && (this.type != "checkbox")) || this.checked) {
+                    /* data['id'] = this.name;
+                data['answer'] = this.value; */
+                data[this.name] = this.value;
+            }
 	    });
-	    /* Store also the URL */
-	    data['url'] = document.URL;
 	    /* Send! */
 	    dynsite_send_data(given_uid, event_name, data);
         /* If button has class reauthoring_reload, fire the reload */
