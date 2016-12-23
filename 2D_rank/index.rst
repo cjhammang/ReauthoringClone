@@ -11,11 +11,11 @@ page. You can ask these two questions together as follows:
 
 .. xy-click:: two-question-widget-id
    :top: Very stimulating
-   :bottom: Not a all stimulating
+   :bottom: Not at all stimulating
    :left: Useless
    :right: Very useful
    :size: 250px
-	  
+
 The user then clicks anywhere in the 2D space and two numbers in the range
 [-100,100] are computed for each dimension and sent as events.
 
@@ -23,7 +23,7 @@ The widget above is inserted by the following source code::
 
   .. xy-click:: two-question-widget-id
      :top: Very stimulating
-     :bottom: Not a all stimulating
+     :bottom: Not at all stimulating
      :left: Useless
      :right: Very useful
      :size: 250px
