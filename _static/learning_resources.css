@@ -63,6 +63,7 @@ table.topic-matrix td,
 table.topic-matrix th
 {
   padding: 2px;
+  height: 100%;
 }
 
 button.topic-matrix
