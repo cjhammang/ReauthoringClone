@@ -75,6 +75,11 @@ button.topic-matrix
   font-weight: bold;
 }
 
+button.topic-matrix p
+{
+  margin: unset;
+}
+
 label { color: #222; }
 
 div.instructor-guide {
