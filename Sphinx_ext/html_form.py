@@ -182,11 +182,11 @@ class Html_input(Directive):
         else:
             value = ''
 
-        return [html_input(args = self.arguments, 
-                          el_type = el_type, 
-                          checked = checked,
-                          maxlength = maxlength,
-                          value = value)]
+        return [html_input(args=self.arguments,
+                           el_type=el_type,
+                           checked=checked,
+                           maxlength=maxlength,
+                           value=value)]
                       
 
 ################################################################################
