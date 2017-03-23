@@ -73,4 +73,5 @@ The sample site is available through [this bitbucket reauthoring repository](htt
 Happy designing!
 
 //A Quick note to show that I was able to make a change to master
+
 Merge demonstration successful
