@@ -1,0 +1,242 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2D Questions &mdash; Creating Learning Resources with Sphinx-doc</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/learning_resources.css" type="text/css" />
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Creating Learning Resources with Sphinx-doc" href="../index.html"/>
+        <link rel="next" title="Accordion Documents" href="../Accordion_docs/index.html"/>
+        <link rel="prev" title="Example of Activity Template" href="../Activity/activity_template.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            CONTEXT:     '',
+            DATA_CAPTURE_URL: '',
+            DATA_CAPTURE_METHOD: 'POST',
+            DATA_CAPTURE_SUBJECT_NAME: 'leco_subject_field',
+            DATA_CAPTURE_VERB_NAME: 'leco_verb_field',
+            DATA_CAPTURE_OBJECT_NAME: 'leco_object_field',
+            DATA_CAPTURE_CONTEXT_NAME: 'leco_context_field'
+        };
+    </script>
+    
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="../_static/embedded_video.js"></script>
+
+  
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search logobgn">
+        <a href="../index.html" class="fa fa-home"> Creating Learning Resources with Sphinx-Doc</a>
+      </div>
+      
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing Reauthoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Embedded_questions/index.html">Questions Embedded in Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Embedded_questions/index.html#multiple-choice-with-one-correct-answer">Multiple Choice with One Correct Answer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Embedded_questions/index.html#multiple-choice-with-multiple-answers-correct">Multiple Choice with Multiple Answers Correct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Embedded_questions/index.html#fill-in-the-blank">Fill in the Blank</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Videos/index.html">Embedding Videos in a page</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Videos/index.html#multiple-videos-in-a-page">Multiple Videos in a page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Sequences/index.html">Multiple Choice Exercises for Sequential Delivery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Activity/index.html">Activities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Activity/activity_template.html">Example of Activity Template</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">2D Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Accordion_docs/index.html">Accordion Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Accordion_docs/index.html#how-to-create-an-accordion-doc">How to create an Accordion Doc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Accordion_docs/index.html#another-section">Another section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Accordion_docs/index.html#id1">Another Section</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Customize/index.html">How to Customize these Pages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Customize/index.html#use-reauthoring-as-a-submodule-of-your-project">Use Reauthoring as a submodule of your project</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      <div class="wy-side-nav-search">
+      <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Creating Learning Resources with Sphinx-Doc</a>
+        
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>2D Questions</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/2D_rank/index.rst.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="d-questions">
+<span id="d-question"></span><h1>2D Questions<a class="headerlink" href="#d-questions" title="Permalink to this headline">¶</a></h1>
+<p>This extension allows the inclusion of a ranking widget that uses a
+two-dimensional plane to rank to questions simultaneously. For example, imagine
+that you want to know how stimulating and useful the user perceived certain
+page. You can ask these two questions together as follows:</p>
+<div class="xy_click" id="two-question-widget-id">
+  <div class="xy_click_inner" style="display: inline-block;">
+  <div class="xy_top_label" style="text-align:center">Very stimulating</div>
+  <div class="xy_click_center" style="display:table-row;">
+    <div class="xy_left_label" style="vertical-align: middle; display: table-cell;">Useless</div>
+    <div class="xy_grid" style="position:relative;">      <img class="xy_grid_img" src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static\xy_grid_5x5.png" style="vertical-align: middle;" height="250px" width="250px"/>      <img class="xy_ok_icon" src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static\Correct_20x20.png"style="display:none;position:absolute;"/>    </div>    <div class="xy_right_label" style="display: table-cell; vertical-align: middle">Very useful</div>
+    </div>
+  <div class="xy_bottom_label" style="text-align:center">Not at all stimulating</div>  </div>
+</div>
+<p>The user then clicks anywhere in the 2D space and two numbers in the range
+[-100,100] are computed for each dimension and sent as events.</p>
+<p>The widget above is inserted by the following source code:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">..</span> <span class="n">xy</span><span class="o">-</span><span class="n">click</span><span class="p">::</span> <span class="n">two</span><span class="o">-</span><span class="n">question</span><span class="o">-</span><span class="n">widget</span><span class="o">-</span><span class="nb">id</span>
+   <span class="p">:</span><span class="n">top</span><span class="p">:</span> <span class="n">Very</span> <span class="n">stimulating</span>
+   <span class="p">:</span><span class="n">bottom</span><span class="p">:</span> <span class="n">Not</span> <span class="n">at</span> <span class="nb">all</span> <span class="n">stimulating</span>
+   <span class="p">:</span><span class="n">left</span><span class="p">:</span> <span class="n">Useless</span>
+   <span class="p">:</span><span class="n">right</span><span class="p">:</span> <span class="n">Very</span> <span class="n">useful</span>
+   <span class="p">:</span><span class="n">size</span><span class="p">:</span> <span class="mi">250</span><span class="n">px</span>
+</pre></div>
+</div>
+<p>All five configuration variables can also be defined in the configuration file
+<code class="docutils literal"><span class="pre">conf.py</span></code> so that they apply to all the 2D questions in a document. The
+definitions in the text will take preference over those in the configuration
+file. The names and default values of these variable are:</p>
+<dl class="docutils">
+<dt>xy_click_top_label:</dt>
+<dd>Label to place at the top/center of the widget (default: TOP LABEL)</dd>
+<dt>xy_click_bottom_label:</dt>
+<dd>Label to place at the bottom/center of the widget (default: BOTTOM LABEL)</dd>
+<dt>xy_click_left_label:</dt>
+<dd>Label to place at the left/middle of the widget (default: LEFT LABEL)</dd>
+<dt>xy_click_right_label:</dt>
+<dd>Label to place at the right/middle of the widget  (default: RIGHT LABEL)</dd>
+<dt>xy_click_grid_size:</dt>
+<dd>Size of the grid image (default: 300px)</dd>
+</dl>
+<p>The options used in the example can be included in the configuration file as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">xy_click_top_label</span> <span class="o">=</span> <span class="s1">&#39;Very stimulating&#39;</span>
+<span class="n">xy_click_bottom_label</span> <span class="o">=</span> <span class="s1">&#39;Not a all stimulating&#39;</span>
+<span class="n">xy_click_left</span> <span class="o">=</span> <span class="s1">&#39;Useless&#39;</span>
+<span class="n">xy_click_right</span> <span class="o">=</span> <span class="s1">&#39;Very useful&#39;</span>
+<span class="n">xy_click_size</span> <span class="o">=</span> <span class="s1">&#39;250px&#39;</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Accordion_docs/index.html" class="btn btn-neutral float-right" title="Accordion Documents"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Activity/activity_template.html" class="btn btn-neutral" title="Example of Activity Template"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Abelardo Pardo, The University of Sydney.
+    </p>
+  </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript" src="../_static/dynsite.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

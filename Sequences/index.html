@@ -1,0 +1,262 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Multiple Choice Exercises for Sequential Delivery &mdash; Creating Learning Resources with Sphinx-doc</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/learning_resources.css" type="text/css" />
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Creating Learning Resources with Sphinx-doc" href="../index.html"/>
+        <link rel="next" title="Activities" href="../Activity/index.html"/>
+        <link rel="prev" title="Embedding Multiple Videos in a Page" href="../Videos/sample_video.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            CONTEXT:     '',
+            DATA_CAPTURE_URL: '',
+            DATA_CAPTURE_METHOD: 'POST',
+            DATA_CAPTURE_SUBJECT_NAME: 'leco_subject_field',
+            DATA_CAPTURE_VERB_NAME: 'leco_verb_field',
+            DATA_CAPTURE_OBJECT_NAME: 'leco_object_field',
+            DATA_CAPTURE_CONTEXT_NAME: 'leco_context_field'
+        };
+    </script>
+    
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="../_static/embedded_video.js"></script>
+
+  
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search logobgn">
+        <a href="../index.html" class="fa fa-home"> Creating Learning Resources with Sphinx-Doc</a>
+      </div>
+      
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing Reauthoring</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Embedded_questions/index.html">Questions Embedded in Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Embedded_questions/index.html#multiple-choice-with-one-correct-answer">Multiple Choice with One Correct Answer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Embedded_questions/index.html#multiple-choice-with-multiple-answers-correct">Multiple Choice with Multiple Answers Correct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Embedded_questions/index.html#fill-in-the-blank">Fill in the Blank</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Videos/index.html">Embedding Videos in a page</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Videos/index.html#multiple-videos-in-a-page">Multiple Videos in a page</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Multiple Choice Exercises for Sequential Delivery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Activity/index.html">Activities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Activity/activity_template.html">Example of Activity Template</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2D_rank/index.html">2D Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Accordion_docs/index.html">Accordion Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Accordion_docs/index.html#how-to-create-an-accordion-doc">How to create an Accordion Doc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Accordion_docs/index.html#another-section">Another section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Accordion_docs/index.html#id1">Another Section</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Customize/index.html">How to Customize these Pages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Customize/index.html#use-reauthoring-as-a-submodule-of-your-project">Use Reauthoring as a submodule of your project</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      <div class="wy-side-nav-search">
+      <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Creating Learning Resources with Sphinx-Doc</a>
+        
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Multiple Choice Exercises for Sequential Delivery</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/Sequences/index.rst.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="multiple-choice-exercises-for-sequential-delivery">
+<h1>Multiple Choice Exercises for Sequential Delivery<a class="headerlink" href="#multiple-choice-exercises-for-sequential-delivery" title="Permalink to this headline">¶</a></h1>
+<p>This functionality is still relying on Sphinx to generate content, but it needs
+and additional application to by fully deployed. The idea is to define a set of
+exercises that can be answered as multiple choice questions, bundle them in an
+entity called a <em>sequence</em> and have them delivered to the students in a
+sequence. A random exercise is selected and shown, the answer captured and
+graded. If the answer is correct, the exercise is no longer in the sequence
+(will not be seen by the student). If incorrect, the exercise remains in the
+sequence and a new one is randomly selected.</p>
+<p>The effect of these sequences is that students keep repeating the exercises
+that they answer incorrectly. The auxiliary platform (independent of the
+authoring steps discussed here) keeps a score of the percentage of questions
+that have been correctly answer so far. The following figure shows an example
+of exercise as part of a sequence:</p>
+<div class="figure align-center" id="id1">
+<span id="problem-sequence-capture"></span><img alt="../_images/problem_sequence.png" src="../_images/problem_sequence.png" />
+<p class="caption"><span class="caption-text">Exercise in a Sequence where 17.56% of it has been correctly answered</span></p>
+</div>
+<p>The format to write these exercises is very similar to that discussed for the
+<a class="reference internal" href="../Embedded_questions/index.html#embedded-mcq"><span class="std std-ref">Questions Embedded in Notes</span></a>. This is how to write an exercise to be included in a
+sequence:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Circuit Evaluation
+------------------
+
+Consider the following combinational circuit
+
+.. figure:: cdl_exc_circuit2.png
+   :align: center
+   :alt: Three input boolean circuit
+
+Can you determine the value of the output of the XOR gate without knowing the
+input value of x?
+
+A) Yes, it is zero
+
+#) Yes, it is one
+
+#) Yes, if I know the values of y and z.
+
+#) No, I need to know all three input signals
+
+.. iguide:: Solution
+
+   2
+</pre></div>
+</div>
+<p>The result of this description is the exercise shown in the <a class="reference internal" href="#problem-sequence-capture"><span class="std std-ref">previous
+figure</span></a>. As you can see, the beginning of the
+description is a regular section of reStructuredText, it even includes a
+figure. The exercise description must conclude with an enumeration of the
+answers (itemized list). Finally, the text is terminated by three special
+lines. The first has fixed format, starts with two dots, a space, the word
+<em>iguide</em> followed by two colons, and then the word <em>Solution</em>. The second is an
+empty line, and the third contains only the number of the answer that is
+correct <strong>starting with zero for the first answer</strong>. In the example, the
+correct answer is the third one.</p>
+<p>The authoring process of these exercises is a bit different. Each exercise must
+be written in its own file and all of them in a separate folder from the
+regular documents. This is because they need to be translated with different
+format so that resulting HTML will then be taken by the sequencing application
+as part of the algorithm that was previously described.</p>
+<p>If you want to start creating your own sequence of problems, create a new
+folder and start creating the files for each exercise. If you go to the
+location of the source code for this page, you will see a folder called
+<em>Sample</em> that contains precisely a sample of files with a sequence of
+exercises. The files will be processed by Sphinx, but with different settings,
+thus, this is why this folder is being ignored while generating these
+documents (see if you can find the location in the file <cite>conf.py</cite> where we tell
+sphinx to ignore that folder.</p>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../Activity/index.html" class="btn btn-neutral float-right" title="Activities"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../Videos/sample_video.html" class="btn btn-neutral" title="Embedding Multiple Videos in a Page"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Abelardo Pardo, The University of Sydney.
+    </p>
+  </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript" src="../_static/dynsite.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

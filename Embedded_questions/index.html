@@ -1,0 +1,288 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Questions Embedded in Notes &mdash; Creating Learning Resources with Sphinx-doc</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/learning_resources.css" type="text/css" />
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Creating Learning Resources with Sphinx-doc" href="../index.html"/>
+        <link rel="next" title="Document with Several Embedded Multiple Choice Questions" href="sample_eqt.html"/>
+        <link rel="prev" title="Installing Reauthoring" href="../install.html"/> 
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            CONTEXT:     '',
+            DATA_CAPTURE_URL: '',
+            DATA_CAPTURE_METHOD: 'POST',
+            DATA_CAPTURE_SUBJECT_NAME: 'leco_subject_field',
+            DATA_CAPTURE_VERB_NAME: 'leco_verb_field',
+            DATA_CAPTURE_OBJECT_NAME: 'leco_object_field',
+            DATA_CAPTURE_CONTEXT_NAME: 'leco_context_field'
+        };
+    </script>
+    
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="../_static/embedded_video.js"></script>
+
+  
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search logobgn">
+        <a href="../index.html" class="fa fa-home"> Creating Learning Resources with Sphinx-Doc</a>
+      </div>
+      
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../install.html">Installing Reauthoring</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Questions Embedded in Notes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#multiple-choice-with-one-correct-answer">Multiple Choice with One Correct Answer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#multiple-choice-with-multiple-answers-correct">Multiple Choice with Multiple Answers Correct</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fill-in-the-blank">Fill in the Blank</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Videos/index.html">Embedding Videos in a page</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Videos/index.html#multiple-videos-in-a-page">Multiple Videos in a page</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Sequences/index.html">Multiple Choice Exercises for Sequential Delivery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Activity/index.html">Activities</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Activity/activity_template.html">Example of Activity Template</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../2D_rank/index.html">2D Questions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Accordion_docs/index.html">Accordion Documents</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Accordion_docs/index.html#how-to-create-an-accordion-doc">How to create an Accordion Doc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Accordion_docs/index.html#another-section">Another section</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../Accordion_docs/index.html#id1">Another Section</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../Customize/index.html">How to Customize these Pages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../Customize/index.html#use-reauthoring-as-a-submodule-of-your-project">Use Reauthoring as a submodule of your project</a></li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+      <div class="wy-side-nav-search">
+      <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Creating Learning Resources with Sphinx-Doc</a>
+        
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Questions Embedded in Notes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="../_sources/Embedded_questions/index.rst.txt" rel="nofollow"> View page source</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            
+  <div class="section" id="questions-embedded-in-notes">
+<span id="embedded-mcq"></span><h1>Questions Embedded in Notes<a class="headerlink" href="#questions-embedded-in-notes" title="Permalink to this headline">¶</a></h1>
+<p>These extensions insert several question types in the middle of the text with
+their automatic assessment. Students can check the answer immediately. The kit
+supports the following type of questions:</p>
+<ul class="simple">
+<li>Multiple choice with one correct answer.</li>
+<li>Fill in the blank (fixed answer)</li>
+</ul>
+<div class="section" id="multiple-choice-with-one-correct-answer">
+<h2>Multiple Choice with One Correct Answer<a class="headerlink" href="#multiple-choice-with-one-correct-answer" title="Permalink to this headline">¶</a></h2>
+<p>The directive to insert a multiple choice question with a single correct answer
+is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>.. eqt:: COD-integerencoding-videoeqt-eqt_11
+
+   **Question 1** What is the representation of the number -127 in 2s
+   complement with 8 bits?
+
+   A) :eqt:`I` `1000 0000`
+
+   #) :eqt:`I` `1111 1111`
+
+   #) :eqt:`C` `1000 0001`
+
+   #) :eqt:`I` None of the above
+</pre></div>
+</div>
+<p>Make sure the string that follows the <cite>.. eqt::</cite> directive is unique throughout
+your documents. Can you spot which answer is marked as the correct one? After
+processing, the result is:</p>
+<div class="reauthoring_embedded_quiz" id="COD-integerencoding-videoeqt-eqt_11"><form class="reauthoring_embedded_quiz_questions"><p><strong>Question 1</strong> What is the representation of the number -127 in 2s
+complement with 8 bits?</p>
+<ol class="upperalpha eqt-answer-list simple">
+<li><input type="radio" name="question" value="I" />  <img class="result_icon" style="display: none;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Incorrect_20x20.png"></img> <cite>1000 0000</cite></li>
+<li><input type="radio" name="question" value="I" />  <img class="result_icon" style="display: none;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Incorrect_20x20.png"></img> <cite>1111 1111</cite></li>
+<li><input type="radio" name="question" value="C" />  <img class="result_icon" style="display: none;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Correct_20x20.png"></img> <cite>1000 0001</cite></li>
+<li><input type="radio" name="question" value="I" />  <img class="result_icon" style="display: none;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Incorrect_20x20.png"></img> None of the above</li>
+</ol>
+</form><div class="reauthoring_embedded_quiz_buttons"><input class="reauthoring_quiz_button reauthoring-grade"        style="display:none;"        type="button" value="Grade" /><input class="reauthoring_quiz_button reauthoring-again"        style="display:none;"        type="button" value="Again" /><input class="reauthoring_quiz_button reauthoring-solution"        style="display:none;"        type="button" value="Solution" />  <img class="correct_icon" style="opacity: 0;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Correct_20x20.png"></img>  <img class="incorrect_icon" style="opacity: 0;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Incorrect_20x20.png"></img><span class="reauthoring-embedded-answer"></span></div></div><p>Go ahead, answer it! The question is translated to the proper HTML, the right
+scripts inserted, and everything handled properly as specified by the
+markup.</p>
+<p>Check the following document for an example of a file containing <strong>only</strong>
+questions of this type.</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="sample_eqt.html">Document with Several Embedded Multiple Choice Questions</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="multiple-choice-with-multiple-answers-correct">
+<h2>Multiple Choice with Multiple Answers Correct<a class="headerlink" href="#multiple-choice-with-multiple-answers-correct" title="Permalink to this headline">¶</a></h2>
+<p>The directive to insert a multiple choice question with multiple correct
+answers is:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>.. eqt-mc:: COD-hexanane-11
+
+   **Question 1** How is the base with 16 symbols called?
+
+   A) :eqt:`I` Strange
+
+   #) :eqt:`C` Hexadecimal
+
+   #) :eqt:`I` Hexagonal
+
+   #) :eqt:`C` Base 16
+</pre></div>
+</div>
+<p>Remember that the string that follows the <cite>.. eqt-mc::</cite> directive must be
+unique throughout your documents. The correct choices are marked as in the
+previous case. The result is:</p>
+<div class="reauthoring_embedded_quiz-mc" id="COD-hexanane-11"><form class="reauthoring_embedded_quiz_questions"><p><strong>Question 1</strong> How is the base with 16 symbols called?</p>
+<ol class="upperalpha eqt-answer-list simple">
+<li><input type="checkbox" name="question" value="I" />  <img class="result_icon" style="display: none;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Incorrect_20x20.png"></img> Strange</li>
+<li><input type="checkbox" name="question" value="C" />  <img class="result_icon" style="display: none;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Correct_20x20.png"></img> Hexadecimal</li>
+<li><input type="checkbox" name="question" value="I" />  <img class="result_icon" style="display: none;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Incorrect_20x20.png"></img> Hexagonal</li>
+<li><input type="checkbox" name="question" value="C" />  <img class="result_icon" style="display: none;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Correct_20x20.png"></img> Base 16</li>
+</ol>
+</form><div class="reauthoring_embedded_quiz_buttons"><input class="reauthoring_quiz_button reauthoring-grade"        style="display:none;"        type="button" value="Grade" /><input class="reauthoring_quiz_button reauthoring-again"        style="display:none;"        type="button" value="Again" /><input class="reauthoring_quiz_button reauthoring-solution"        style="display:none;"        type="button" value="Solution" />  <img class="correct_icon" style="opacity: 0;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Correct_20x20.png"></img>  <img class="incorrect_icon" style="opacity: 0;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Incorrect_20x20.png"></img><span class="reauthoring-embedded-answer"></span></div></div></div>
+<div class="section" id="fill-in-the-blank">
+<h2>Fill in the Blank<a class="headerlink" href="#fill-in-the-blank" title="Permalink to this headline">¶</a></h2>
+<p>The directive to insert these questions is almost identical to the previous one
+with a slight difference in the first line and the way you specify the answer:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>.. eqt-fib:: COD-integerencoding-sequence-11
+
+   **Question 1** What is the representation of the number -127 in 2s
+   complement with 8 bits?
+
+   :eqt:`10000001`
+</pre></div>
+</div>
+<p>The rendering of the directive is:</p>
+<div class="reauthoring_embedded_quiz-fib" id="COD-integerencoding-sequence-11"><form class="reauthoring_embedded_quiz_questions"><p><strong>Question 1</strong> What is the representation of the number -127 in 2s
+complement with 8 bits?</p>
+<p><div class="reauthoring_embedded_quiz-fib-answer">Answer<input type="text" name="question" value=""/><input type="hidden" name="solution" value="10000001"/></div></p>
+</form><div class="reauthoring_embedded_quiz_buttons"><input class="reauthoring_quiz_button reauthoring-grade"        style="display:none;"        type="button" value="Grade" /><input class="reauthoring_quiz_button reauthoring-again"        style="display:none;"        type="button" value="Again" /><input class="reauthoring_quiz_button reauthoring-solution"        style="display:none;"        type="button" value="Solution" />  <img class="correct_icon" style="opacity: 0;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Correct_20x20.png"></img>  <img class="incorrect_icon" style="opacity: 0;"       src="../E:\SydneyUniWork\ReauthoringClone\_build\html\_static/Incorrect_20x20.png"></img><span class="reauthoring-embedded-answer"></span></div></div><p>The answer is case sensitive. Thus, if you use it for a string, make sure the
+answer is the obvious one with respect to case.</p>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sample_eqt.html" class="btn btn-neutral float-right" title="Document with Several Embedded Multiple Choice Questions"/>Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../install.html" class="btn btn-neutral" title="Installing Reauthoring"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2016, Abelardo Pardo, The University of Sydney.
+    </p>
+  </div>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript" src="../_static/dynsite.js"></script>
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
